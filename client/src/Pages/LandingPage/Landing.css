@@ -1,0 +1,48 @@
+.authform {
+  width: 50%;
+}
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: 0 4rem;
+}
+.logo{
+    font-size: 2rem;
+    color: #FFA800;
+    font-weight:bolder;
+}
+.headerContainer .auth-btn{
+    border: 1px solid #A7A3A3;
+    border-radius: 0.25rem;
+    padding: 0.15rem 1rem;
+    background: none;
+    margin: 0 1rem;
+}
+
+.herosection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4rem;
+}
+
+.headerContainer .authlink{
+    text-decoration: none;
+}
+.herotitle{
+    color: #989595;
+}
+.heroCTA{
+    background: none;
+    color:#FFA800;
+    border: 1px solid #A7A3A3;
+    padding: 0.5rem 1rem;
+    margin-top: 2rem;
+}
+.landingImage{
+    margin: 0 4rem;
+}
+.landingImage img{
+    width: 100%;
+}

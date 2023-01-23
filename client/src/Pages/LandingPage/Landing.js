@@ -3,27 +3,39 @@ import "./Landing.css";
 import { HeroTextx } from "../../Components/DynamicData";
 import Footer from "../../Components/Footer/Footer";
 import { Link, Outlet } from "react-router-dom";
+import Modal from "../../Components/Modal/Modal";
 
 function Landing() {
   return (
     <>
-      <div>
-        <div>{HeroTextx?.logo}</div>
+      <div className="headerContainer">
+        <h1 className="logo">{HeroTextx?.logo}</h1>
         <div>
-          <Link to="/signin">{HeroTextx.login.name}</Link>
-          <Link to="/signout">{HeroTextx.logout.name}</Link>
+          <button className="auth-btn">
+            <Link to="/signin" className="authlink">
+              {HeroTextx.login.name}
+            </Link>
+          </button>
+          <button className="auth-btn">
+            <Link to="/signout" className="authlink">
+              {HeroTextx.logout.name}
+            </Link>
+          </button>
         </div>
       </div>
-      <div>
+      <div className="herosection">
         <div>
-          <h2>{HeroTextx?.heroMsg}</h2>
-          <button>{HeroTextx?.CTA1} </button>
+          <h3 className="herotitle">{HeroTextx?.heroMsg}</h3>
+          <button className="heroCTA">{HeroTextx?.CTA1} </button>
         </div>
         <div>
-          <img src="" alt="" />
+          <img src="/heroImage1.jpeg" alt="" />
         </div>
       </div>
-      <div>
+      <div className="landingImage">
+        <img src="/collegestudents.jpeg" alt="" />
+      </div>
+      <div className="authform">
         <Outlet />
       </div>
 
