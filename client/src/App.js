@@ -1,10 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import SignIn from "./Components/SignIn/SignIn";
 import SignUp from "./Components/SignUp/SignUp";
 import Landing from "./Pages/LandingPage/Landing";
 import DashBoard from "./Pages/DashBoard/DashBoard";
 import CourseDetail from "./Pages/CourseDetail/CourseDetail";
 import ContactUs from "./Components/ContactUs/ContactUs";
+import Modal from "./Components/Modal/Modal";
 
 function App() {
   return (

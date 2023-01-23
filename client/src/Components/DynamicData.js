@@ -5,12 +5,16 @@ export const NavLinks = [
 ];
 
 export const HeroTextx = {
-  logo: "MultiVerse E-Learning",
+  logo: "MultiVerse ",
+  logo2:"E-Learning",
   login: { name: "Sign In", link: "signin" },
   logout: { name: "SignOut", link: "signout" },
-  CTA1: "Explore Courses",
+  CTA1: "Explore Now",
   CTA2: "Contact Us",
-  heroMsg: "Empower yourself with our e-learning",
+  heroMsg: "Empower yourself and Achieve Your Goals with Our Comprehensive E-Learning Platform - Start Learning Now!",
   copyRight:
-    "2022 Designed and implemented By Yared G, Jordan H, Getu T and Bengamin C",
+    "Designed and implemented By Yared G., Jordan H, Getu T and Bengamin C.",
+    tel:'+1 222 333 4444',
+    email:"multiverse@e-learning.com",
+    fax:'+1 222 333 4444'
 };

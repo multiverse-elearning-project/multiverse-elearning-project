@@ -9,7 +9,10 @@ function Landing() {
   return (
     <>
       <div className="headerContainer">
-        <h1 className="logo">{HeroTextx?.logo}</h1>
+        <h1 className="logo">
+          <span id="logo-int">{HeroTextx?.logo}</span>
+          <span id="logo-sec">{HeroTextx?.logo2}</span>
+        </h1>
         <div>
           <button className="auth-btn">
             <Link to="/signin" className="authlink">
@@ -28,8 +31,8 @@ function Landing() {
           <h3 className="herotitle">{HeroTextx?.heroMsg}</h3>
           <button className="heroCTA">{HeroTextx?.CTA1} </button>
         </div>
-        <div>
-          <img src="/heroImage1.jpeg" alt="" />
+        <div className="heroImg">
+          <img src="/heroImage2.avif" alt="" />
         </div>
       </div>
       <div className="landingImage">
@@ -38,7 +41,6 @@ function Landing() {
       <div className="authform">
         <Outlet />
       </div>
-
       <Footer />
     </>
   );
