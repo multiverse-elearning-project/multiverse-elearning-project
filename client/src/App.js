@@ -5,7 +5,6 @@ import Landing from "./Pages/LandingPage/Landing";
 import DashBoard from "./Pages/DashBoard/DashBoard";
 import CourseDetail from "./Pages/CourseDetail/CourseDetail";
 import ContactUs from "./Components/ContactUs/ContactUs";
-import Modal from "./Components/Modal/Modal";
 
 function App() {
   return (
