@@ -1,3 +1,22 @@
 .NavbarContainer {
     height: 5rem;
 }
+.nav-logo{
+    width: 7rem;
+    height: 4.9rem;
+}
+
+Navbar.Toggle{
+    color: #ffffff;
+}
+nav button .navbar-toggler-icon{
+    color: red;
+}
+@media screen and (min-width:765px){
+    Nav .menu-list{
+        color: #ffffff;
+    }
+    Nav .menu-list:hover{
+        color: #ffa800;
+    }
+}
