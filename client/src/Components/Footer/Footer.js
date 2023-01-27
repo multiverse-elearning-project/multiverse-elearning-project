@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Footer.css";
 import { HeroTextx } from "../DynamicData";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -9,9 +9,12 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 function Footer() {
   const thisYear = new Date().getFullYear();
 
+  const stickyref = useRef();
+  console.log(stickyref.current);
+
   return (
     <>
-      <div className="footer-container">
+      <div className="footer-container" ref={stickyref}>
         <div className="footer-inner">
           <div className="footer-contact">
             <h5>Contact Us</h5>
@@ -42,7 +45,10 @@ function Footer() {
             </div>
           </div>
           <div className="logotxt">
-            <h5>{HeroTextx.logo}{HeroTextx.logo2}</h5>
+            <h5>
+              {HeroTextx.logo}
+              {HeroTextx.logo2}
+            </h5>
           </div>
         </div>
         <p className="copyrigth">

@@ -1,4 +1,8 @@
 .footer-container {
+  position: relative;
+  bottom: 0;
+  right: 0;
+  left: 0;
   height: 250px;
   background-color: #eeeeee;
   padding: 2rem 4rem 4rem 4rem;
@@ -9,12 +13,12 @@
   align-items: center;
   gap: 2rem;
 }
-.footer-contact h5{
-    font-weight: bolder;
-    text-decoration:underline #ffa800;
+.footer-contact h5 {
+  font-weight: bolder;
+  text-decoration: underline #ffa800;
 }
-.logotxt{
-    font-weight: bolder;
+.logotxt {
+  font-weight: bolder;
 }
 .footer-contact {
   border-right: 2px solid #ffa800;

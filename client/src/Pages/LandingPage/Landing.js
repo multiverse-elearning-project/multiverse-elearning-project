@@ -16,12 +16,12 @@ function Landing() {
         <div>
           <button className="auth-btn">
             <Link to="/signin" className="authlink">
-              {HeroTextx.login.name}
+              {HeroTextx?.login?.name}
             </Link>
           </button>
           <button className="auth-btn">
             <Link to="/signout" className="authlink">
-              {HeroTextx.logout.name}
+              {HeroTextx?.logout?.name}
             </Link>
           </button>
         </div>
