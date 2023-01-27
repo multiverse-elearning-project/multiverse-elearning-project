@@ -4,7 +4,7 @@ import SignUp from "./Components/SignUp/SignUp";
 import Landing from "./Pages/LandingPage/Landing";
 import DashBoard from "./Pages/DashBoard/DashBoard";
 import CourseDetail from "./Pages/CourseDetail/CourseDetail";
-import ContactUs from "./Components/ContactUs/ContactUs";
+import ContactUs from "./Pages/ContactUsPage/ContactUs";
 
 function App() {
   return (
