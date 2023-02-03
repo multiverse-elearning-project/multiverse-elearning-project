@@ -1,5 +1,5 @@
 
-const app = require("./app");
+import { app } from "../app";
 
 const config = require('config.json');
 const mysql = require('mysql2/promise');
