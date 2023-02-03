@@ -18,6 +18,7 @@ function App() {
           <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/course" element={<CourseDetail />} />
           <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/profile" element={<ContactUs />} />
         </Routes>
       </BrowserRouter>
     </>

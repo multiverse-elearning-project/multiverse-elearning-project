@@ -5,14 +5,13 @@
   width: 7rem;
   height: 5.9rem;
 }
-
-Navbar.Toggle {
-  color: #ffffff;
-}
-nav button .navbar-toggler-icon {
-  color: red;
+.navbar-toggler{
+  background-color: #eeeeee !important;
 }
 
+Nav .menu-list {
+  color: #000000;
+}
 @media screen and (min-width: 765px) {
   Nav .menu-list {
     color: #ffffff;
@@ -21,11 +20,35 @@ nav button .navbar-toggler-icon {
     color: #ffa800;
   }
 }
-@media screen and (max-width: 765px) {
-  .humberger {
-      z-index: 100;
+.dispbtn{
+  display: none;
+}
+@media screen and (max-width: 991px) {
+  .nav-logo{
+    height: 4.5rem;
   }
-  .Nav .menu-list{
-      z-index: 100;
+
+  Nav .menu-list {
+    color: #000000;
+  }
+  .me-auto {
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    min-width: 250px;
+    max-width: 50%;
+    height: 250px;
+    padding: 1rem;
+    text-align: center;
+    background-color: #eeeeee;
+    z-index: 100;
+  }
+  .dispbtn{
+    display: block;
+  }
+}
+@media screen and (max-width:830px){
+  .nav-logo{
+    display: none;
   }
 }

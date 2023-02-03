@@ -1,0 +1,12 @@
+.coursesDashboard{
+    margin: 4rem 4rem;
+}
+.searchbar{
+    margin-bottom: 4rem;
+
+}
+.coursesCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

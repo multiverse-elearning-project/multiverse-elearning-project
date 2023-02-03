@@ -1,0 +1,45 @@
+.avatarpic {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.greeting {
+  color: white;
+}
+.avatar {
+  text-align: center;
+}
+.avatarcontainer {
+  display: flex;
+}
+.threedots {
+  color: white;
+  font-size: 200% !important;
+  align-self: center;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+.moremenu {
+  background-color: #eeeeee;
+  position: absolute;
+  top: 6rem;
+  right: 0;
+  width: 15rem;
+  text-align: center;
+  list-style: none;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 100;
+}
+.moremenulist {
+  margin-bottom: 1rem;
+  margin-top: 1em;
+}
+.moremenulist:hover{
+  text-decoration: 3px solid underline rgba(9, 5, 59, 0.823);
+}
+@media screen and (max-width: 992px) {
+  .avatarcontainer {
+    display: none;
+  }
+}
