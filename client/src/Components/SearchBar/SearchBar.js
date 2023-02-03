@@ -1,18 +1,17 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-
-import './SearchBar.css'
+import styles from './SearchBar.module.css'
 
 function SearchBar() {
   return (
     <Form className="d-flex">
     <Form.Control
       type="search"
-      placeholder="Search"
+      placeholder="Search your courses"
       className="me-3"
       aria-label="Search"
     />
-    <Button variant="outline-success">Search</Button>
+    <Button className={styles.btn}>Search</Button>
   </Form>
   );
 }

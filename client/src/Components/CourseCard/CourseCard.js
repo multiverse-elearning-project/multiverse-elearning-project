@@ -1,10 +1,11 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import styles from './CourseCard.module.css'
 
 function CourseCard() {
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card className={styles.courseCard}>
       <div className="ratio ratio-16x9">
         <iframe
           src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
