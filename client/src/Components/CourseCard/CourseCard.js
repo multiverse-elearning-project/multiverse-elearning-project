@@ -1,24 +1,21 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import styles from './CourseCard.module.css'
+import styles from "./CourseCard.module.css";
 
-function CourseCard() {
+function CourseCard({ courseDetail }) {
   return (
     <Card className={styles.courseCard}>
       <div className="ratio ratio-16x9">
         <iframe
-          src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-          title="YouTube video"
-          allowfullscreen
+          src={courseDetail?.vedioUrl}
+          title={courseDetail?.coursetittle}
+          allowFullScreen
         ></iframe>
       </div>
       <Card.Body>
-        <Card.Title>React</Card.Title>
-        <Card.Text>
-          Some quick example text about the course and make up the bulk of the
-          card's content.
-        </Card.Text>
+        <Card.Title>{courseDetail?.coursetittle}</Card.Title>
+        <Card.Text>{courseDetail?.coursedescr}</Card.Text>
         <Button variant="primary">Enroll</Button>
       </Card.Body>
     </Card>
