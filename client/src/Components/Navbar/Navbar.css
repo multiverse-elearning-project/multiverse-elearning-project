@@ -20,7 +20,7 @@ Nav .menu-list {
     color: #ffa800;
   }
 }
-.dispbtn{
+Nav .dispbtn{
   display: none;
 }
 @media screen and (max-width: 991px) {
@@ -43,7 +43,7 @@ Nav .menu-list {
     background-color: #eeeeee;
     z-index: 100;
   }
-  .dispbtn{
+  Nav .dispbtn{
     display: block;
   }
 }
