@@ -9,12 +9,9 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 function Footer() {
   const thisYear = new Date().getFullYear();
 
-  const stickyref = useRef();
-  console.log(stickyref.current);
-
   return (
     <>
-      <div className="footer-container" ref={stickyref}>
+      <div className="footer-container" >
         <div className="footer-inner">
           <div className="footer-contact">
             <h5>Contact Us</h5>

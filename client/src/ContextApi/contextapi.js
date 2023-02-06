@@ -31,6 +31,7 @@ function MultiverseProvider({ children }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [courses, SetCourses] = useState(mockdata);
   const [filteredCourses, SetFilteredCourses] = useState(courses);
+  const [enrollCourse, setEnrollCourse] = useState([]);
 
   // useEffect(() => {
   //   const allcourses = getAllCourses()
@@ -42,8 +43,11 @@ function MultiverseProvider({ children }) {
         modalOpen,
         setModalOpen,
         courses,
+        SetCourses,
         filteredCourses,
         SetFilteredCourses,
+        enrollCourse,
+        setEnrollCourse,
       }}
     >
       {children}
