@@ -18,7 +18,7 @@ function DashBoard() {
         </div>
         <div className={styles.coursesCard}>
           {filteredCourses.length === 0 ? (
-            <div>No result found</div>
+            <p>No result found</p>
           ) : (
             filteredCourses.map((filteredcourse, index) => {
               return <CourseCard key={index} courseDetail={filteredcourse} />;
