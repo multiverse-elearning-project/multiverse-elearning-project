@@ -26,18 +26,6 @@ function DashBoard() {
               })
             )}
           </div>
-        <div className={styles.searchbar}>
-          <SearchBar />
-        </div>
-        <div className={styles.coursesCard}>
-          {filteredCourses.length === 0 ? (
-            <p>No result found</p>
-          ) : (
-            filteredCourses.map((filteredcourse, index) => {
-              return <CourseCard key={index} courseDetail={filteredcourse} />;
-            })
-          )}
-
         </div>
       </div>
       <Footer />
