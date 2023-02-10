@@ -24,7 +24,7 @@
   position: absolute;
   top: 6rem;
   right: 0;
-  padding:0 2rem;
+  padding: 0 2rem;
   text-align: center;
   list-style: none;
   cursor: pointer;
@@ -34,7 +34,7 @@
 .moremenulist {
   margin: 1rem 0;
 }
-.moremenulist:hover{
+.moremenulist:hover {
   text-decoration: 3px solid underline rgba(9, 5, 59, 0.823);
   background-color: aliceblue;
 }
