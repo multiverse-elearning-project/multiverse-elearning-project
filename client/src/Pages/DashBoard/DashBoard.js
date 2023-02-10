@@ -13,6 +13,19 @@ function DashBoard() {
     <>
       <NavbarMenu />
       <div className={styles.coursesDashboard}>
+        <div className={styles.dashboardInnerContainer}>
+          <div className={styles.searchbar}>
+            <SearchBar />
+          </div>
+          <div className={styles.coursesCard}>
+            {filteredCourses.length === 0 ? (
+              <div>No result found</div>
+            ) : (
+              filteredCourses.map((filteredcourse, index) => {
+                return <CourseCard key={index} courseDetail={filteredcourse} />;
+              })
+            )}
+          </div>
         <div className={styles.searchbar}>
           <SearchBar />
         </div>
@@ -24,6 +37,7 @@ function DashBoard() {
               return <CourseCard key={index} courseDetail={filteredcourse} />;
             })
           )}
+
         </div>
       </div>
       <Footer />
