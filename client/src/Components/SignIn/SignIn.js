@@ -4,11 +4,14 @@ import Form from "react-bootstrap/Form";
 import "./SignIn.css";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
+  const navigate = useNavigate();
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log("submitted");
+    navigate("/dashboard");
   };
   return (
     <div className="SignIn-wrapper">

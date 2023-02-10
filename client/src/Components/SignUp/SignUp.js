@@ -4,10 +4,13 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import "./SignUp.css";
 import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
+  const navigate = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
+    navigate("/dashboard");
   };
   return (
     <div className="formcontainer">

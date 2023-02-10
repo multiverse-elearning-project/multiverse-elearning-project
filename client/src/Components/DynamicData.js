@@ -8,6 +8,7 @@ export const HeroTextx = {
   logo: "MultiVerse ",
   logo2: "E-Learning",
   login: { name: "Sign In", link: "signin" },
+  signup: { name: "Sign Up", link: "signup" },
   logout: { name: "SignOut", link: "signout" },
   CTA1: "Explore Now",
   CTA2: "Contact Us",

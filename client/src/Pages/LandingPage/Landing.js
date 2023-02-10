@@ -21,7 +21,7 @@ function Landing() {
           </button>
           <button className="auth-btn">
             <Link to="/signout" className="authlink">
-              {HeroTextx?.logout?.name}
+              {HeroTextx?.signup?.name}
             </Link>
           </button>
         </div>
