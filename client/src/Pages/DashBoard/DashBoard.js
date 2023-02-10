@@ -8,7 +8,7 @@ import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function DashBoard() {
   const { filteredCourses } = useContext(MultiverseContext);
-
+  
   return (
     <>
       <NavbarMenu />
