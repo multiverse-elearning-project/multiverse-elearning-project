@@ -5,6 +5,7 @@ import Landing from "./Pages/LandingPage/Landing";
 import DashBoard from "./Pages/DashBoard/DashBoard";
 import CourseDetail from "./Pages/CourseDetail/CourseDetail";
 import ContactUs from "./Pages/ContactUsPage/ContactUs";
+import Profile from './Pages/ProfilePage/Profile'
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/course/:courseId" element={<CourseDetail />} />
           <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/profile" element={<ContactUs />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </>
