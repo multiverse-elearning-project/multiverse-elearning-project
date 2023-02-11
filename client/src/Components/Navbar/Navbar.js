@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Avatar from "../Avatar/Avatar";
 import "./Navbar.css";
-import {Navtext} from '../DynamicData'
+import { Navtext } from "../DynamicData";
 function NavbarMenu() {
   return (
     <Navbar bg="dark" expand="lg" className="NavbarContainer">
@@ -20,6 +20,9 @@ function NavbarMenu() {
             </Nav.Link>
             <Nav.Link href="/dashboard" className="menu-list">
               {Navtext.Courseprogress}
+            </Nav.Link>
+            <Nav.Link href="/dashboard/newcourse" className="menu-list">
+              {Navtext.newCourse}
             </Nav.Link>
             <Nav.Link href="/contactus" className="menu-list">
               {Navtext.gotoContactUsPage}

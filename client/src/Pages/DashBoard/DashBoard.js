@@ -5,10 +5,11 @@ import NavbarMenu from "../../Components/Navbar/Navbar";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import styles from "./DashBoard.module.css";
 import { MultiverseContext } from "../../ContextApi/contextapi";
+import { Outlet } from "react-router-dom";
 
 function DashBoard() {
   const { filteredCourses } = useContext(MultiverseContext);
-  
+
   return (
     <>
       <NavbarMenu />
@@ -28,6 +29,10 @@ function DashBoard() {
           </div>
         </div>
       </div>
+      <div className={styles.create_newcourse}>
+        <Outlet />
+      </div>
+      
       <Footer />
     </>
   );
