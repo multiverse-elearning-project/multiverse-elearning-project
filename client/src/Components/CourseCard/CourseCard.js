@@ -2,16 +2,19 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./CourseCard.module.css";
 import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function CourseCard({ courseDetail }) {
   const { setEnrollCourse } = useContext(MultiverseContext);
-
+  const navigate = useNavigate()
   const handleEnrollment = (courseId) => {
-    const enroll = axios.get("url");
+    const enroll = axios.get(
+      "https://course-api.com/javascript-store-products"
+    );
     setEnrollCourse(enroll);
+    navigate("/course/:courseId");
   };
   return (
     <Card className={styles.courseCard}>

@@ -3,7 +3,6 @@ import "./Landing.css";
 import { HeroTextx } from "../../Components/DynamicData";
 import Footer from "../../Components/Footer/Footer";
 import { Link, Outlet } from "react-router-dom";
-import Modal from "../../Components/Modal/Modal";
 
 function Landing() {
   return (

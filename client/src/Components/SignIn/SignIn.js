@@ -10,7 +10,6 @@ function SignIn() {
   const navigate = useNavigate();
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log("submitted");
     navigate("/dashboard");
   };
   return (
