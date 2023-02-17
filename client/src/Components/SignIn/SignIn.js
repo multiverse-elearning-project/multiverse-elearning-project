@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import "./SignIn.css";
+import styles from "./SignIn.module.css";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
@@ -13,15 +13,15 @@ function SignIn() {
     navigate("/dashboard");
   };
   return (
-    <div className="SignIn-wrapper">
-      <div className="signIn-closebtn" title="close">
+    <div className={styles.SignIn_wrapper}>
+      <div className={styles.signIn_closebtn} title="close">
         <Link to="/">
           <CloseIcon />
         </Link>
       </div>
 
       <Form onSubmit={onSubmitHandler}>
-        <h3 className="login-header">Log In</h3>
+        <h3 className={styles.login_header}>Log In</h3>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
@@ -36,7 +36,7 @@ function SignIn() {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Remember me" />
         </Form.Group>
-        <Button id="signin-btn" type="submit">
+        <Button id={styles.signin_btn} type="submit">
           SignIn
         </Button>
         <div>

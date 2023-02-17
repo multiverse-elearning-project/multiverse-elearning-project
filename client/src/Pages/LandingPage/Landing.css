@@ -63,3 +63,13 @@ text-decoration:#ffa800 underline 7px solid ;
 .heroImg img {
   width: 100%;
 }
+
+@media screen and (max-width:750px) {
+  .headerContainer{
+    flex-direction: column;
+    text-align: center;
+  }
+  .logo{
+    margin-bottom: 1rem;
+  }
+}

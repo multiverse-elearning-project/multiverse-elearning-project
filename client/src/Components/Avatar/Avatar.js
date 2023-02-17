@@ -27,7 +27,7 @@ function Avatar({ profileImg, name }) {
         {isClicked &&
           threeDotMenu.map((menu, ind) => (
             <li key={ind} className={styles.moremenulist}>
-              {menu}
+            <Link to={menu.menuLink} className={styles.options}>{menu.menuName}</Link>
             </li>
           ))}
       </ul>

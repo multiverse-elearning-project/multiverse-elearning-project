@@ -1,4 +1,4 @@
-.SignIn-wrapper {
+.SignIn_wrapper {
   position: absolute;
   top: 8rem;
   right: 4rem;
@@ -7,16 +7,23 @@
   background-color: #eeeeee;
   padding: 2rem;
 }
-.login-header {
+.login_header {
   color: #141f49;
 }
-#signin-btn {
+#signin_btn {
   background-color: #141f49;
   border: none;
   padding: 0.5rem 2.5rem;
   margin-bottom: 1rem;
 }
-.signIn-closebtn {
+.signIn_closebtn {
   text-align: right;
   cursor: pointer;
+}
+@media screen and (max-width:630px){
+  .SignIn_wrapper{
+    left: 1rem;
+    right: 1rem;
+  }
+  
 }

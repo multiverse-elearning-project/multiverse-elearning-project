@@ -7,25 +7,23 @@
   background-color: #eeeeee;
   padding: 2rem;
 }
-.SignIn-wrapper {
-  position: absolute;
-  top: 8rem;
-  right: 4rem;
-  max-width: 700px;
-  min-width: 500px;
-  background-color: #eeeeee;
-  padding: 2rem;
-}
-.login-header {
+
+.login_header {
   color: #141f49;
 }
-#signup-btn {
+#signup_btn {
   background-color: #141f49;
   border: none;
   padding: 0.5rem 2.5rem;
   margin-bottom: 1rem;
 }
-.signUp-closebtn {
+.signUp_closebtn {
   text-align: right;
   cursor: pointer;
+}
+@media screen and (max-width: 750px) {
+  .formcontainer {
+    left: 1rem;
+    right: 1rem;
+  }
 }

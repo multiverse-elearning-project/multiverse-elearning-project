@@ -13,8 +13,9 @@ function CourseCard({ courseDetail }) {
     const enroll = axios.get(
       "https://course-api.com/javascript-store-products"
     );
+    console.log(enroll)
     setEnrollCourse(enroll);
-    navigate("/course/:courseId");
+    navigate(`/course/${enroll?.id || 1}`);
   };
   return (
     <Card className={styles.courseCard}>
