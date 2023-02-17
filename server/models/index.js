@@ -1,6 +1,7 @@
 const {Sequelize} = require('sequelize')
 const {sequelize} = require('../db')
 
+
 const Instructor = sequelize.define("instructors", {
   ID:Sequelize.INTEGER,
   firstName:Sequelize.STRING,
@@ -45,6 +46,13 @@ const Payment = sequelize.define("payments", {
   lastName: Sequelize.STRING
 });
 
+const Enrollemnet = sequelize.define("enrollemts", {
+  enrollmenttID: Sequelize.NUMBER,
+  courseID: Sequelize.NUMBER,
+  userID: Sequelize.NUMBER,
+  
+});
+
 
 //model association 
 User.hasMany(Course);
@@ -64,5 +72,5 @@ Course.belongsTo(Instructor)
 
 module.exports = {
   db: sequelize,
-  Instructor, Course, Module, User, Payment
+  Instructor, Course, Module, User, Payment, Enrollment
 };

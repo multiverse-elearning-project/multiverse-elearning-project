@@ -1,89 +1,77 @@
-const express = require("express");
-const router = express.Router();
-const {check, validationResult} = require('express-validator')
-const { Course } = require("../models");
+const { Router } = require("express");
+const db = require('../db');
+const router = Router();
 
-// GET /all courses
-router.get("/", async (req, res, next) => {
-  try {
-    const items = await Item.findAll();
-    res.send(items);
-  } catch (error) {
-    next(error);
-  }
-});
+// const path = require('path');
 
-// GET / course by id
-router.get("/:id", async (req, res, next) => {
-  try {
-    const selectedCourses = await Course.findByPk(req.params.id);
-    res.send(selectedCourses);
-  } catch (error) {
-    next(error);
-  }
-});
+router.use((req, res, next) => {
+	console.log("Request made to COURSES Route");
+	next();
+})
 
-// GET /items by category
-router.get("/type/:type", async (req, res, next) => {
-  try {
-    const courses = await Course.findAll({where: {category: req.params.category}});
-    res.send(courses);
-  } catch (error) {
-    next(error);
-  }
-});
+router.get('/courses', (req, res) => {
+	res.json({route: "Courses"});
+	
+})
 
+router.get('/', async (req, res) => {
+	const results = await db.promise().query(`SELECT * FROM courses`);
+	console.log(results);
+	res.status(200).send(results);
+})
 
-//POST Item
-router.post("/",[check('name').not().isEmpty()], async (req, res, next) => {
-  const errors = validationResult(req)
-    if(!errors.isEmpty()){
-        res.json({error:errors.array()});
-    }
-  try {
-    const [course, wasCreated] = await Course.findOrCreate({
-      where: {
-        name: req.body.name,
-        price: req.body.price,
-        description: req.body.description,
-        category:req.body.category,
-        imageUrl: req.body.imageUrl
-      }
-    });
-    res.send(item);
-  } catch (error) {
-    next(error);
-  }
-});
+//POST /Creat Courses
+router.post('/', async (req, res) => {
+	const { studentNumber, courseName, courseType, coursePrice, courseReleaseDate, isEnrolled, description} = req.body;
+	if(studentNumber && courseName && courseType && coursePrice && courseReleaseDate && isEnrolled && description){
+			try{
+				db.promise().query(`INSERT INTO COURSES VALUES('${studentNumber}', '${courseName}', '${courseType}', '${coursePrice}', '${courseReleaseDate}', '${isEnrolled}', '${description}')`)
+				res.status(200).send({msg: 'Course created'})
+			}
+			catch(err){
+				console.log(err);
+			}
+	}
+ })
 
-// PUT / Update course by id 
-router.put("/:id", async (req, res, next) => {
-  try {
-    const updatedCourse = await Course.update(req.body, {
-      where: {
-        id: req.params.id
-      }
-    });
-    res.send(updatedCourse);
-  } catch (error) {
-    next(error);
-  }
-});
+//Fetch all courses 
+router.get('/', (req, res) => {
+	let sql = 'SELECT * FROM courses';
+	 db.query(sql, (err, results) => {
+		if(err) throw err;
+		console.log(results);
+		res.send('Courses fetched from the database...');
+	})
+})
 
+//Fetch spesific course 
+router.get('/courses/:id', (req, res) => {
+	let sql = `SELECT * FROM courses WHERE id=${req.params.id}`;
+	 db.query(sql, (err, result) => {
+		if(err) throw err;
+		console.log(result);
+		res.send('Single Course fetched from the database...');
+	})
+})
 
-// DELETE / item by id 
-router.delete("/:id", async (req, res, next) => {
-  try {
-    await Item.destroy({
-      where: {
-        id: req.params.id
-      }
-    });
-    const items = await Item.findAll();
-    res.send(items);
-  } catch (error) {
-    next(error);
-  }
-});
+// Update Course
+router.put('/courses/:id', (req, res) => {
+	let newCourse = 'Updated Course'
+	let sql = `UPDATE courses SET title='${newTitle}' WHERE id=${req.params.id}`;
+	 db.query(sql, (err, result) => {
+		if(err) throw err;
+		console.log(result);
+		res.send('Single Course updated in the database...');
+	})
+})
+// Delete single Course
+router.delete('/courses/:id', (req, res) => {
+	let sql = `DELETE courses WHERE id=${req.params.id}`;
+	 db.query(sql, (err, result) => {
+		if(err) throw err;
+		console.log(result);
+		res.send('Single Course deleted in the database...');
+	})
+})
 
 module.exports = router;
