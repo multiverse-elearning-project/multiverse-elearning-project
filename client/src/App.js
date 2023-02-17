@@ -8,6 +8,8 @@ import ContactUs from "./Pages/ContactUsPage/ContactUs";
 import Profile from "./Pages/ProfilePage/Profile";
 import NewCourse from "./Components/NewCourse/NewCourse";
 import NewContent from "./Components/NewCourseContent/NewContent";
+import Enrolled from "./Pages/Enrolled/Enrolled";
+import Setting from "./Pages/Setting/Setting";
 
 function App() {
   return (
@@ -20,11 +22,16 @@ function App() {
           </Route>
           <Route path="/dashboard" element={<DashBoard />}>
             <Route path="/dashboard/newcourse" element={<NewCourse />} />
-            <Route path="/dashboard/newcourse_content" element={<NewContent />} />
+            <Route
+              path="/dashboard/newcourse_content"
+              element={<NewContent />}
+            />
           </Route>
           <Route path="/course/:courseId" element={<CourseDetail />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="enrolled" element={<Enrolled />} />
+          <Route path="setting" element={<Setting />} />
         </Routes>
       </BrowserRouter>
     </>
