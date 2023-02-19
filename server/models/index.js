@@ -30,8 +30,9 @@ const Module = sequelize.define("modules", {
 
 const Lecture = sequelize.define("lectures", {
   lectureID: Sequelize.NUMBER,
-  lactureName: Sequelize.STRING,
-  lactureUrl: Sequelize.STRING,
+  lectureName: Sequelize.STRING,
+  moduleType: Sequelize.STRING,
+  lectureUrl: Sequelize.STRING,
   description: Sequelize.STRING
 });
 
@@ -49,7 +50,7 @@ const Payment = sequelize.define("payments", {
   postalCode: Sequelize.STRING,
   country: Sequelize.STRING,
   state: Sequelize.STRING,
-  paymentType: Sequelize.ENUM("fee", "payment"),
+  paymentType: Sequelize.ENUM("fee", "pay"),
   firstName: Sequelize.STRING,
   lastName: Sequelize.STRING
 });
@@ -57,7 +58,8 @@ const Payment = sequelize.define("payments", {
 const Enrollment = sequelize.define("enrollemts", {
   enrollmentID: Sequelize.NUMBER,
   courseID: Sequelize.NUMBER,
-  userID: Sequelize.NUMBER
+  userID: Sequelize.NUMBER,
+  selectionType: Sequelize.ENUM("courseID", "userID")
 });
 
 
@@ -76,9 +78,6 @@ Module.belongsTo(Instructor)
 
 Instructor.hasMany(Course)
 Course.belongsTo(Instructor)
-
-User.hasMany(Payment)
-Payment.belongsTo(User)
 
 Instructor.hasMany(Payment)
 Payment.belongsTo(Payment)

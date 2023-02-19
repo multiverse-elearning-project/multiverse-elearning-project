@@ -8,9 +8,8 @@ router.use('/users', require('./users'));
 router.use('/instructors', require('./instructors'));
 router.use('/modules', require('./modules'));
 router.use('/payments', require('./payments'));
-router.use('/enrollments', require('./enrollments'));
 router.use('/lectures', require('./lectures'));
-
+router.use('/enrollments', require('./enrollments'));
 
 
 module.exports = router;

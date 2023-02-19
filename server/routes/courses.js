@@ -9,7 +9,7 @@ router.use((req, res, next) => {
 	next();
 })
 
-// GET /all items
+// GET all course
 router.get("/", async (req, res, next) => {
   try {
     const courses = await Course.findAll();
@@ -19,7 +19,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// GET / items by id
+// GET / spesific course by id
 router.get("/:id", async (req, res, next) => {
   try {
     const selectedCourses = await Course.findByPk(req.params.id);
@@ -29,7 +29,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-// GET /courses by courseType
+// GET courses by courseType
 router.get("/courseType/:courseType", async (req, res, next) => {
   try {
     const courseType = await Course.findAll({where: {courseType: req.params.type}});
@@ -42,7 +42,7 @@ router.get("/courseType/:courseType", async (req, res, next) => {
 //POST Courses
 router.post("/", async (req, res, next) => {
   try {
-    const [course, courseCreated] = await Course.findOrCreate({
+    const [course, createdCourses] = await Course.findOrCreate({
       where: {
         studentNumber: req.body.studentNumber,
         courseName: req.body.courseName,
@@ -59,34 +59,34 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-// PUT / Update item by id 
+// PUT / Update course list by id 
 router.put("/:id", async (req, res, next) => {
   try {
-    const updatedItem = await Item.update(req.body, {
+    const updatedCourse = await Course.update(req.body, {
       where: {
         id: req.params.id
       }
     });
-    res.send(updatedItem);
+    res.send(updatedCourse);
   } catch (error) {
     next(error);
   }
 });
 
-
-// DELETE / item by id 
+// DELETE / from courses list by id 
 router.delete("/:id", async (req, res, next) => {
   try {
-    await Item.destroy({
+    await Course.destroy({
       where: {
         id: req.params.id
       }
     });
-    const items = await Item.findAll();
-    res.send(items);
+    const courses = await Course.findAll();
+    res.send(courses);
   } catch (error) {
     next(error);
   }
 });
+
 
 module.exports = router;
