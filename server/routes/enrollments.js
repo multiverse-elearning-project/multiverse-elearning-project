@@ -1,75 +1,74 @@
 const express = require("express");
-const db = require('../db');
 const router = express.Router();
-const path = require('path');
+const { Enrollment } = require("../models");
 
 
 //Request Made to this route
 router.use((req, res, next) => {
-	console.log("Request made to USERS Route");
+	console.log("Request made to ENROLLMENT Route");
 	next();
 })
 
-//Enable to enrolle
-router.post('/', (req, res) => {
-	const {username, password, courseID, userID} = req.body;
-	if(username && password && courseID && userID){
-		console.log(username, password, courseID, userID);
-	}
-})
+// GET /all enrolled users for courses
+router.get("/", async (req, res, next) => {
+  try {
+    const enrollments = await Enrollment.findAll();
+    res.send(enrollments);
+  } catch (error) {
+    next(error);
+  }
+});
 
-//POST Enable user to enroll
-router.post('/', (req, res) => {
-	const { enrollmentID, courseID, userID} = req.body;
-	if(enrollmentID && courseID && userID ){
-			try{
-				db.promise().query(`INSERT INTO ENROLLMENTS VALUES('${enrollmentID}', '${courseID}', '${userID}')`)
-				res.status(200).send({msg: 'User Enrolled'})
-			}
-			catch(err){
-				console.log(err);
-			}
-	}
- })
+// GET / select spesific ????? 
+router.get("/:id", async (req, res, next) => {
+  try {
+    const selecteEnrolled = await Enrollment.findByPk(req.params.id);
+    res.send(selecteEnrolled);
+  } catch (error) {
+    next(error);
+  }
+});
 
-//Fetch all Enrollment
-router.get('/enrollments', (req, res) => {
-	let sql = 'SELECT * FROM enrollments';
-	 db.query(sql, (err, results) => {
-		if(err) throw err;
-		console.log(results);
-		res.send('Enrolled students fetched from the database...');
-	})
-})
+// GET select enrolled users by courseType ???? 
+router.get("/selectionType/:selectionType", async (req, res, next) => {
+  try {
+    const selectByType = await Enrollment.findAll({where: {selectionType: req.params.type}});
+    res.send(selectByType);
+  } catch (error) {
+    next(error);
+  }
+});
 
-//Fetch spesific course 
-router.get('/enrollmnts/:id', (req, res) => {
-	let sql = `SELECT * FROM enrollments WHERE id=${req.params.id}`;
-	 db.query(sql, (err, result) => {
-		if(err) throw err;
-		console.log(result);
-		res.send('Single Enrolled students fetched from the database...');
-	})
-})
+//POST /create (Generate automatically from courses and users table)
 
-// Update Course
-router.put('/enrollmnts/:id', (req, res) => {
-	let newCourse = 'Updated Enrollemnet'
-	let sql = `UPDATE users SET title='${newTitle}' WHERE id=${req.params.id}`;
-	 db.query(sql, (err, result) => {
-		if(err) throw err;
-		console.log(result);
-		res.send('Single Enrollemts updated in the database...');
-	})
-})
-// Delete single Course
-router.delete('/enrollmnts/:id', (req, res) => {
-	let sql = `DELETE enrollmnets WHERE id=${req.params.id}`;
-	 db.query(sql, (err, result) => {
-		if(err) throw err;
-		console.log(result);
-		res.send('Single User enrolled deleted in the database...');
-	})
-})
+// PUT / Update item by id 
+router.put("/:id", async (req, res, next) => {
+  try {
+    const updatedEnrollment = await Enrollment.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    });
+    res.send(updatedEnrollment);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// DELETE / item by id 
+router.delete("/:id", async (req, res, next) => {
+  try {
+    await Enrollment.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    const enrolledStudent = await Enrollment.findAll();
+    res.send(enrolledStudent);
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 module.exports = router;

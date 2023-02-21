@@ -1,16 +1,8 @@
 const {Sequelize} = require('sequelize')
 const {sequelize} = require('../db')
 
-
-const Instructor = sequelize.define("instructors", {
-  ID:Sequelize.INTEGER,
-  firstName:Sequelize.STRING,
-  lastName:Sequelize.STRING,
-  password:Sequelize.STRING,
-  email:Sequelize.STRING
-});
-
 const Course = sequelize.define("courses", {
+  courseID:Sequelize.INTEGER,
   studentNumber: Sequelize.NUMBER,
   courseName: Sequelize.STRING,
   courseType: Sequelize.STRING,
@@ -20,11 +12,27 @@ const Course = sequelize.define("courses", {
   description: Sequelize.STRING
 });
 
+const Instructor = sequelize.define("instructors", {
+  instructorID:Sequelize.INTEGER,
+  firstName:Sequelize.STRING,
+  lastName:Sequelize.STRING,
+  password:Sequelize.STRING,
+  email:Sequelize.STRING
+});
+
 const Module = sequelize.define("modules", {
   moduleID: Sequelize.NUMBER,
   moduleName: Sequelize.STRING,
   moduleUrl: Sequelize.STRING,
   excersices: Sequelize.NUMBER,
+  description: Sequelize.STRING
+});
+
+const Lecture = sequelize.define("lectures", {
+  lectureID: Sequelize.NUMBER,
+  lectureName: Sequelize.STRING,
+  moduleType: Sequelize.STRING,
+  lectureUrl: Sequelize.STRING,
   description: Sequelize.STRING
 });
 
@@ -39,23 +47,24 @@ const User = sequelize.define("users", {
 const Payment = sequelize.define("payments", {
   paymentID: Sequelize.NUMBER,
   city: Sequelize.STRING,
-  PostalCode: Sequelize.STRING,
+  postalCode: Sequelize.STRING,
   country: Sequelize.STRING,
   state: Sequelize.STRING,
+  paymentType: Sequelize.ENUM("fee", "pay"),
   firstName: Sequelize.STRING,
   lastName: Sequelize.STRING
 });
 
-const Enrollemnet = sequelize.define("enrollemts", {
-  enrollmenttID: Sequelize.NUMBER,
+const Enrollment = sequelize.define("enrollemts", {
+  enrollmentID: Sequelize.NUMBER,
   courseID: Sequelize.NUMBER,
   userID: Sequelize.NUMBER,
-  
+  selectionType: Sequelize.ENUM("courseID", "userID")
 });
 
 
 //model association 
-User.hasMany(Course);
+User.hasMany(Course)
 Course.belongsTo(User)
 
 User.hasMany(Payment)
@@ -69,6 +78,12 @@ Module.belongsTo(Instructor)
 
 Instructor.hasMany(Course)
 Course.belongsTo(Instructor)
+
+Instructor.hasMany(Payment)
+Payment.belongsTo(Payment)
+
+User.hasMany(Enrollment)
+
 
 module.exports = {
   db: sequelize,

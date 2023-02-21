@@ -1,8 +1,6 @@
 const express = require("express");
-const db = require('../db');
 const router = express.Router();
-const path = require('path');
-
+const { User } = require("../models");
 
 //Request Made to this route
 router.use((req, res, next) => {
@@ -10,65 +8,81 @@ router.use((req, res, next) => {
 	next();
 })
 
-router.post('/', (req, res) => {
-	const {username, password } = req.body;
-	if(username && password){
-		console.log(username, password);
-	}
-})
+// GET /all items
+router.get("/", async (req, res, next) => {
+  try {
+    const users = await User.findAll();
+    res.send(users);
+  } catch (error) {
+    next(error);
+  }
+});
 
-//Insert data to database (table: 'courses') course Number 2
-router.post('/create', (req, res, next) => {
-	let courses = req.body;
-	query = "INSERT INTO USERS (firstName, lastName, password, email) VALUES ('12346', 'Java 1','Intermediate-level', 21, '2022-03-06','Yes','This course is prepared for enrollers required to upscale thier skill in software engineering')";
-	
-	db.query(query,[users.firstName, users.lastName, users.password, users.email], (err, result) => {
-		if(!err){
-			 return res.status(200).json('Users added succesfully ...');
-		} else 
-		return res.status(500).json(err);
-	});
-})
+// GET / select and GET spesific user by id
+router.get("/:id", async (req, res, next) => {
+  try {
+    const selectedUser = await User.findByPk(req.params.id);
+    res.send(selectedUser);
+  } catch (error) {
+    next(error);
+  }
+});
 
+// GET users by course category ????? TBD
+router.get("/course/:course", async (req, res, next) => {
+  try {
+    const listUserByCourse = await Payment.findAll({where: {course: req.params.type}});
+    res.send(listUserByCourse);
+  } catch (error) {
+    next(error);
+  }
+});
 
-//Fetch all courses 
-router.get('/getusers', (req, res) => {
-	let sql = 'SELECT * FROM users';
-	 db.query(sql, (err, results) => {
-		if(err) throw err;
-		console.log(results);
-		res.send('Users fetched from the database...');
-	})
-})
+//POST /create list of users enrolled for the course/s
+router.post("/", async (req, res, next) => {
+  try {
+    const [user, createdUser] = await User.findOrCreate({
+      where: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+				password: req.body.password,
+				email: req.body.email
+      }
+    });
+    res.send(user);
+  } catch (error) {
+    next(error);
+  }
+});
 
-//Fetch spesific course 
-router.get('/getuser/:id', (req, res) => {
-	let sql = `SELECT * FROM users WHERE id=${req.params.id}`;
-	 db.query(sql, (err, result) => {
-		if(err) throw err;
-		console.log(result);
-		res.send('Single User fetched from the database...');
-	})
-})
+// PUT / Update user list by id 
+router.put("/:id", async (req, res, next) => {
+  try {
+    const updatedUser = await User.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    });
+    res.send(updatedUser);
+  } catch (error) {
+    next(error);
+  }
+});
 
-// Update Course
-router.get('/updateuser/:id', (req, res) => {
-	let newCourse = 'Updated User'
-	let sql = `UPDATE users SET title='${newTitle}' WHERE id=${req.params.id}`;
-	 db.query(sql, (err, result) => {
-		if(err) throw err;
-		console.log(result);
-		res.send('Single User updated in the database...');
-	})
-})
-// Delete single Course
-router.get('/deleteuser/:id', (req, res) => {
-	let sql = `DELETE courses WHERE id=${req.params.id}`;
-	 db.query(sql, (err, result) => {
-		if(err) throw err;
-		console.log(result);
-		res.send('Single User deleted in the database...');
-	})
-})
+// DELETE / from users list by id 
+router.delete("/:id", async (req, res, next) => {
+  try {
+    await User.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    const users = await User.findAll();
+    res.send(users);
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 module.exports = router;
