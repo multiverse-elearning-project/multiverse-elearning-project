@@ -1,21 +1,34 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./CourseCard.module.css";
 import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function CourseCard({ courseDetail }) {
   const { setEnrollCourse } = useContext(MultiverseContext);
-  const navigate = useNavigate()
-  const handleEnrollment = (courseId) => {
-    const enroll = axios.get(
-      "https://course-api.com/javascript-store-products"
-    );
-    console.log(enroll)
-    setEnrollCourse(enroll);
-    navigate(`/course/${enroll?.id || 1}`);
+  //const { id } = req.cookies; // obtain user id from cookies 
+  const navigate = useNavigate();
+  // call lecture api where courseID matches the selected course Card
+  const handleEnrollment = async (courseId) => {
+    try {
+      const enroll = await axios.get(
+        "https://course-api.com/javascript-store-products"
+      );
+      setEnrollCourse(enroll);
+      navigate(`/course/${enroll?.id || 1}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const enrollUser = async () => {
+    try {
+      //await axios.post("/enroll", { id:"id" });
+      console.log('hit');
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <Card className={styles.courseCard}>
@@ -31,7 +44,10 @@ function CourseCard({ courseDetail }) {
         <Card.Text>{courseDetail?.coursedescr}</Card.Text>
         <Button
           variant="primary"
-          onClick={() => handleEnrollment(courseDetail.Id)}
+          onClick={() => {
+            handleEnrollment(courseDetail.Id);
+            enrollUser();
+          }}
         >
           Enroll
         </Button>
