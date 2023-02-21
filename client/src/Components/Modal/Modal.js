@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Modal.css";
 import CloseIcon from "@mui/icons-material/Close";
+import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function Modal(props, { Children }) {
-  const [modalopen, setModalOpen] = useState(false);
+
+  const {modalOpen, setModalOpen} = useContext(MultiverseContext)
   return (
     <div className={`modalcontainer`}>
-      <div className={"closemodal"}>
+      <div className={"closemodal"} onClick={() => {setModalOpen(false)}}>
         <CloseIcon />
       </div>
       <div>{Children}</div>
