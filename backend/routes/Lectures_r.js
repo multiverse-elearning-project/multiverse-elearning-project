@@ -4,8 +4,9 @@ const LectureController = require('../Controller/LecturesController')
 
 
 router.post('/', LectureController.createLecture )
-router.get('/:id', LectureController.getAllLecturesByID )
-router.patch('/:id', LectureController.editSingleLecture)
-router.delete('/:id', LectureController.deleteSingleLecture)
+router.get('/', LectureController.getAllLectures )
+router.get('/:lectureID', LectureController.getAllLecturesByID )
+router.patch('/:lectureID', LectureController.editSingleLecture)
+router.delete('/:lectureID', LectureController.deleteSingleLecture)
 
 module.exports = router

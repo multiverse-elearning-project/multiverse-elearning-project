@@ -10,7 +10,7 @@ const Lectures = sequelize.define("lectures", {
   },
   id:{
     type:DataTypes.INTEGER,
-    autoIncrement: true,
+    allowNull: false,
   },
   lectureName: {
     type: DataTypes.STRING,

@@ -34,13 +34,11 @@ let RegistrationController = async (req, res) => {
       },
       process.env.ACCESS_TOKEN_SECRET
     );
-    res
-      .status(200)
-      .json({
-        Success: "successfully registered",
-        accessToken: token,
-        newUser,
-      });
+    res.status(200).json({
+      Success: "successfully registered",
+      accessToken: token,
+      newUser,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message }); // server error
   }

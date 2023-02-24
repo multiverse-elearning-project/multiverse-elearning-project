@@ -41,7 +41,7 @@ const CreateCourse = async (req, res, next) => {
       description,
       userUserID,
     });
-    res.send(200).json("your course has been successfully created !!!");
+    res.send(200).json(createdCourses);
   } catch (error) {
     res.status(500).json({ message: error.message }); // server error
     next(error);
