@@ -24,6 +24,7 @@ const RefreshTokenRoute = require("./routes/RefreshToken_r");
 const LogoutRoute = require("./routes/logout_r");
 const LoginRoute = require("./routes/login_r");
 const CoursesRoute = require("./routes/Courses_r");
+const ModulessRoute = require("./routes/Modules_r");
 const LecturesRoute = require("./routes/Lectures_r");
 
 //use all custom routes and middlewares
@@ -32,7 +33,8 @@ app.use("/signin", LoginRoute);
 app.use("/refresh", RefreshTokenRoute);
 app.use("/signout", LogoutRoute);
 app.use("/courses", CoursesRoute);
-//app.use("/courses", LecturesRoute);
+app.use("/courses/modules", ModulessRoute);
+app.use("/courses/modules/lectures", LecturesRoute);
 app.use(verifyJWT); // middlewares below this middleware will not be accessed unless user has valid and unexpired access token. every time user send a request they have to have unexpired accesToken that this middleware grabs from the request header (Bearer 'accessToken'). If it is expired refresh token should be sent along with the request to renew the access Token
 
 

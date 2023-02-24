@@ -7,13 +7,14 @@ const { Lectures } = require("../Models/index");
 const createLecture = async (req, res, next) => {
   try {
     const {
+      id,
       lectureName,
       lectureUrl,
       lectureDuration,
       description,
       moduleModuleID,
     } = req.body;
-    if (
+    if (!id||
       !lectureName ||
       !lectureUrl ||
       !lectureDuration ||
@@ -22,6 +23,7 @@ const createLecture = async (req, res, next) => {
     )
       return res.send(400).json({ message: "please fill all fields" });
     await Lectures.create({
+      id,
       lectureName,
       lectureUrl,
       lectureDuration,
@@ -37,9 +39,7 @@ const createLecture = async (req, res, next) => {
 const getAllLectures = async (req, res, next) => {
   try {
     const moduleModuleID = req.params.moduleModuleID;
-    const lectures = await Lectures.findAll({
-      where: { moduleModuleID: moduleModuleID },
-    });
+    const lectures = await Lectures.findAll();
     res.json(lectures);
   } catch (error) {
     res.status(500).json({ message: error.message }); // server error

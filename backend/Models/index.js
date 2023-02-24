@@ -13,12 +13,17 @@ Courses.belongsTo(Users);
 Users.hasMany(Payments);
 Payments.belongsTo(Users);
 
-Courses.hasMany(CourseModules);
+Courses.hasMany(CourseModules, {
+  onDelete: "CASCADE",
+  onUpdate: "CASCADE",
+});
 CourseModules.belongsTo(Courses);
 
-CourseModules.hasMany(Lectures)
-Lectures.belongsTo(CourseModules)
-
+CourseModules.hasMany(Lectures, {
+  onDelete: "CASCADE",
+  onUpdate: "CASCADE",
+});
+Lectures.belongsTo(CourseModules);
 
 // Instructors.hasMany(CourseModules);
 // CourseModules.belongsTo(Instructors);
