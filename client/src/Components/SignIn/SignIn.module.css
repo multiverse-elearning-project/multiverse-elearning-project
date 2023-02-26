@@ -20,10 +20,12 @@
   text-align: right;
   cursor: pointer;
 }
-@media screen and (max-width:630px){
-  .SignIn_wrapper{
+.signInError {
+  color: crimson;
+}
+@media screen and (max-width: 630px) {
+  .SignIn_wrapper {
     left: 1rem;
     right: 1rem;
   }
-  
 }

@@ -4,6 +4,7 @@ const ModulesController = require('../Controller/ModulesController')
 
 router.get('/', ModulesController.getAllModules )
 router.post('/', ModulesController.createModule )
+router.get('/:moduleID', ModulesController.getModulesByID )
 router.patch('/:moduleID', ModulesController.editSingleModule )
 router.delete('/:moduleID', ModulesController.deleteSingleModule )
 

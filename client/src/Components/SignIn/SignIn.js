@@ -1,16 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import styles from "./SignIn.module.css";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function SignIn() {
   const navigate = useNavigate();
-  const onSubmitHandler = (e) => {
+  const [existingUser, setExistingUser] = useState({
+    email: "",
+    password: "",
+  });
+  const [signInError, setSignInError] = useState("");
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setExistingUser((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+  console.log(existingUser);
+  const submitHandler = async (e) => {
     e.preventDefault();
-    navigate("/dashboard");
+    try {
+      if (!existingUser.email || !existingUser.password)
+        return setSignInError("Incorrect password or user name!");
+      const response = await axios.post(
+        "http://localhost:8080/signin",
+        existingUser
+      );
+      if (response.status !== 200) return setSignInError(response.message);
+      navigate("/dashboard");
+    } catch (error) {
+      setSignInError(error.message);
+    }
   };
   return (
     <div className={styles.SignIn_wrapper}>
@@ -19,19 +45,30 @@ function SignIn() {
           <CloseIcon />
         </Link>
       </div>
-
-      <Form onSubmit={onSubmitHandler}>
-        <h3 className={styles.login_header}>Log In</h3>
+      
+      <Form onSubmit={submitHandler}>
+        <h3 className="login-header">Log In</h3>
+        {signInError && <p className="signInError">{signInError}</p>}
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            name="email"
+            onChange={handleChange}
+          />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            name="password"
+            onChange={handleChange}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Remember me" />

@@ -19,7 +19,7 @@ function Landing() {
             </Link>
           </button>
           <button className="auth-btn">
-            <Link to="/signout" className="authlink">
+            <Link to="/signup" className="authlink">
               {HeroTextx?.signup?.name}
             </Link>
           </button>

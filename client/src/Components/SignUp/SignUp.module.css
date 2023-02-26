@@ -21,6 +21,9 @@
   text-align: right;
   cursor: pointer;
 }
+.regError {
+  color: rgb(168, 5, 5);
+}
 @media screen and (max-width: 750px) {
   .formcontainer {
     left: 1rem;
