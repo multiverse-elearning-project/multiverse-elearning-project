@@ -21,15 +21,16 @@ export const HeroTextx = {
   fax: "+1 222 333 4444",
 };
 export const Navtext = {
-  navigateCourses: "Courses",
-  Courseprogress: "Progress",
+  navigateCourses: "Home",
+  Courseprogress: "Dashboard",
   gotoContactUsPage: "Contact Us",
-  Signout:"Signout"
+  Signout: "Signout",
+  newCourse: "Create Course",
 };
 
 export const threeDotMenu = [
-  "Edit Profile",
-  "Enrolled Courses",
-  "Setting",
-  "Sign Out",
+  { menuName: "Edit Profile", menuLink: "/profile" },
+  { menuName: "Enrolled Courses", menuLink: "/enrolled" },
+  { menuName: "Setting", menuLink: "/setting" },
+  { menuName: "Sign Out", menuLink: "/" },
 ];

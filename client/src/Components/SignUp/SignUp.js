@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
-import "./SignUp.css";
+import styles from "./SignUp.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -39,9 +39,9 @@ function SignUp() {
     navigate("/dashboard");
   };
   return (
-    <div className="formcontainer">
+    <div className={styles.formcontainer}>
       <Form onSubmit={submitHandler}>
-        <div className="signUp-closebtn">
+        <div className={styles.signUp_closebtn}>
           <Link to="/">
             <CloseIcon />
           </Link>
@@ -81,7 +81,6 @@ function SignUp() {
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -101,7 +100,7 @@ function SignUp() {
             label="I agree with terms and conditions of Multiverse E-learning platform usage."
           />
         </Form.Group>
-        <Button id="signup-btn" type="submit">
+        <Button id={styles.signup_btn} type="submit">
           Create an Account
         </Button>
       </Form>

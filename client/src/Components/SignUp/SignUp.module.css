@@ -1,0 +1,32 @@
+.formcontainer {
+  position: absolute;
+  top: 8rem;
+  right: 4rem;
+  max-width: 700px;
+  min-width: 300px;
+  background-color: #eeeeee;
+  padding: 2rem;
+}
+
+.login_header {
+  color: #141f49;
+}
+#signup_btn {
+  background-color: #141f49;
+  border: none;
+  padding: 0.5rem 2.5rem;
+  margin-bottom: 1rem;
+}
+.signUp_closebtn {
+  text-align: right;
+  cursor: pointer;
+}
+.regError {
+  color: rgb(168, 5, 5);
+}
+@media screen and (max-width: 750px) {
+  .formcontainer {
+    left: 1rem;
+    right: 1rem;
+  }
+}

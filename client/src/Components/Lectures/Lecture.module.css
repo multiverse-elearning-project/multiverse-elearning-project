@@ -1,0 +1,14 @@
+.lecturecontainer {
+    padding-left: 1rem;
+}
+.lecturetitle {
+  font-weight: bold;
+}
+.checkbox {
+  margin-right: 1rem;
+}
+.lecturecontainer:hover {
+    cursor: pointer;
+    border: 0.25px solid gray;
+    background-color: aliceblue;
+}
