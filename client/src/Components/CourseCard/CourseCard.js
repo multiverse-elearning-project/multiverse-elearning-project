@@ -17,7 +17,6 @@ function CourseCard({ courseDetail }) {
       );
       setEnrollCourse(enroll);
       navigate(`/course/${enroll?.id || 1}`);
-
     } catch (error) {
       console.log(error);
     }
