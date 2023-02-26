@@ -12,7 +12,7 @@ const LoginHandeler = async (req, res) => {
     return res.status(400).json({ message: "email and password are required" });
   const subscribedUser = await Users.findOne({ where: { email } }); // check if the user exists
   if (!subscribedUser)
-    return res.status(401).json({ error: "Incorrect username or password" });
+    return res.status(401).json({ message: "Incorrect username or password" });
   const isAMatch = await bcrypt.compare(password, subscribedUser.password); // returns a boolean
   if (isAMatch) {
     const role = subscribedUser.role;

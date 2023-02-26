@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const { Op } = require("sequelize");
-const { Courses, Users } = require("../Models/index");
+const { Courses, Users, CourseModules, Lectures } = require("../Models/index");
 
 const CreateCourse = async (req, res, next) => {
   const {
@@ -52,6 +52,31 @@ const getAllCourses = async (req, res, next) => {
   try {
     const courses = await Courses.findAll({
       include: [
+        {
+          model: CourseModules,
+          include: [{ model: Lectures }],
+        },
+        {
+          model: Users,
+        },
+      ],
+    });
+    res.json(courses);
+  } catch (error) {
+    res.status(500).json({ message: error.message }); // server error
+    next(error);
+  }
+};
+
+const getCoursesById = async (req, res, next) => {
+  try {
+    const courses = await Courses.findOne({
+      where:{courseID:req.params.courseID},
+      include: [
+        {
+          model: CourseModules,
+          include: [{ model: Lectures }],
+        },
         {
           model: Users,
         },
@@ -107,6 +132,7 @@ const deleteSingleCourse = async (req, res, next) => {
 
 module.exports = {
   getAllCourses,
+  getCoursesById,
   CreateCourse,
   editSingleCourse,
   deleteSingleCourse,

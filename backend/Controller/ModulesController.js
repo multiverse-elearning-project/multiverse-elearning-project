@@ -28,20 +28,32 @@ const createModule = async (req, res, next) => {
     res.send(500).json({ message: error.message });
   }
 };
-
 const getAllModules = async (req, res, next) => {
   try {
-    const courseID = req.params.courseID;
-    const modules = await CourseModules.findAll(
-      {
-        include: [
-          {
-            model: Lectures,
-          },
-        ],
-      },
-      { where: { courseCourseID: courseID } }
-    );
+    const modules = await CourseModules.findAll({
+      include: [
+        {
+          model: Lectures,
+        },
+      ],
+    });
+    res.json(modules);
+  } catch (error) {
+    res.status(500).json({ message: error.message }); // server error
+    next(error);
+  }
+};
+
+const getModulesByID = async (req, res, next) => {
+  try {
+    const modules = await CourseModules.findAll({
+      where: { moduleID: req.params.moduleID },
+      include: [
+        {
+          model: Lectures,
+        },
+      ],
+    });
     res.json(modules);
   } catch (error) {
     res.status(500).json({ message: error.message }); // server error
@@ -85,6 +97,7 @@ const deleteSingleModule = async (req, res, next) => {
 module.exports = {
   createModule,
   getAllModules,
+  getModulesByID,
   editSingleModule,
   deleteSingleModule,
 };

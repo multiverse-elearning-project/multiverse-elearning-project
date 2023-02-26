@@ -29,3 +29,6 @@
   text-align: right;
   cursor: pointer;
 }
+.regError{
+  color: rgb(168, 5, 5);
+}

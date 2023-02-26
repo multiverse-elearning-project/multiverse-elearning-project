@@ -7,7 +7,10 @@ const { Payments } = require("./Payment_M");
 const { Enrollments } = require("./Enrollement_M");
 
 //model association
-Users.hasMany(Courses);
+Users.hasMany(Courses, {
+  onDelete: "CASCADE",
+  onUpdate: "CASCADE",
+});
 Courses.belongsTo(Users);
 
 Users.hasMany(Payments);
@@ -34,7 +37,10 @@ Lectures.belongsTo(CourseModules);
 // Instructors.hasMany(Payments);
 Payments.belongsTo(Users);
 
-Users.hasMany(Enrollments);
+Users.hasMany(Enrollments, {
+  onDelete: "CASCADE",
+  onUpdate: "CASCADE",
+});
 
 module.exports = {
   Courses,

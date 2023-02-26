@@ -21,7 +21,7 @@ const createLecture = async (req, res, next) => {
       !description ||
       !moduleModuleID
     )
-      return res.send(400).json({ message: "please fill all fields" });
+      return res.sendStatus(400).json({ message: "please fill all fields" });
     await Lectures.create({
       id,
       lectureName,
@@ -30,9 +30,9 @@ const createLecture = async (req, res, next) => {
       description,
       moduleModuleID,
     });
-    res.send(200).json({ message: "lecture has been created" });
+    res.sendStatus(200).json({ message: "lecture has been created" });
   } catch (error) {
-    res.send(500).json({ message: error.message });
+    res.sendStatus(500).json({ message: error.message });
   }
 };
 
