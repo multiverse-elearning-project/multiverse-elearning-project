@@ -25,7 +25,8 @@ function DashBoard() {
               filteredCourses.map((filteredcourse, index) => {
                 return <CourseCard key={index} courseDetail={filteredcourse} />;
               })
-            )}
+            )
+            }
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import styles from "./NewContent.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 
-function ContactUs() {
+function NewContent() {
   return (
     <>
       <Form className={styles.contactusContainer}>
@@ -57,4 +57,4 @@ function ContactUs() {
   );
 }
 
-export default ContactUs;
+export default NewContent;

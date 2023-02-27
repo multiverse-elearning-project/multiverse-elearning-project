@@ -21,7 +21,7 @@ function NavbarMenu() {
             <Nav.Link href="/dashboard" className="menu-list">
               {Navtext.Courseprogress}
             </Nav.Link>
-            <Nav.Link href="/dashboard/newcourse" className="menu-list">
+            <Nav.Link href="/newcourse" className="menu-list">
               {Navtext.newCourse}
             </Nav.Link>
             <Nav.Link href="/contactus" className="menu-list">
