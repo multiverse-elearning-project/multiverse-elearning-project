@@ -8,7 +8,7 @@ import { MultiverseContext } from "../../ContextApi/contextapi";
 import { Outlet } from "react-router-dom";
 
 function DashBoard() {
-  const { filteredCourses } = useContext(MultiverseContext);
+  const { filteredCourses,searchList, setSearchList } = useContext(MultiverseContext);
 
   return (
     <>
@@ -19,10 +19,10 @@ function DashBoard() {
             <SearchBar />
           </div>
           <div className={styles.coursesCard}>
-            {filteredCourses?.length === 0 ? (
+            {searchList?.length === 0 ? (
               <div>No result found</div>
             ) : (
-              filteredCourses?.map((filteredcourse, index) => {
+              searchList?.map((filteredcourse, index) => {
                 return <CourseCard key={index} courseDetail={filteredcourse} />;
               })
             )}

@@ -22,7 +22,7 @@ function SignIn() {
       return { ...prev, [name]: value };
     });
   };
-  console.log(existingUser);
+ 
   const submitHandler = async (e) => {
     e.preventDefault();
     try {

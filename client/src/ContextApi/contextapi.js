@@ -1,25 +1,28 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { getAllCourses } from "../Helper/Helper";
-import axios from "axios";
 import mockdata from "./mockdata";
 const MultiverseContext = React.createContext();
 function MultiverseProvider({ children }) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [courses, SetCourses] = useState(mockdata);
-  const [filteredCourses, SetFilteredCourses] = useState(courses);
+  const [courses, SetCourses] = useState([]);
+  const [filteredCourses, SetFilteredCourses] = useState([]);
+  const [searchList, setSearchList] = useState(filteredCourses);
   const [enrollCourses, setEnrollCourse] = useState([]);
-  const [isEditClicked, setIsEditClicked] = useState(false)
-
+  const [isEditClicked, setIsEditClicked] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState([]);
+  const [ismoduleClick, setModuleClick] = useState([]);
+  const [isLectureClicked, setIsLectureClicked] = useState("");
+  const [selectedLecture, SetSelectedLecture] = useState([]);
 
   useEffect(() => {
     async function FetchAllcourses() {
       const allcourses = await axios.get("http://localhost:8080/courses");
-      SetCourses(allcourses.data);
+      SetCourses(allcourses?.data);
     }
     FetchAllcourses();
   }, []);
-console.log(courses)
+  console.log(courses);
   const FilterCardData = (allcourses) => {
     const courseCard = allcourses?.map((course, i) => {
       const Initialmodules = course?.modules;
@@ -33,16 +36,17 @@ console.log(courses)
         vedioUrl: InitalLect,
         coursedescr: course?.description,
         price: course?.coursePrice,
-        creator:`${course?.user?.firstName} ${course?.user?.lastName}`
+        creator: `${course?.user?.firstName} ${course?.user?.lastName}`,
       };
     });
     SetFilteredCourses(courseCard);
+    setSearchList(courseCard)
   };
 
   useEffect(() => {
     FilterCardData(courses);
   }, [courses]);
-console.log(filteredCourses)
+
   return (
     <MultiverseContext.Provider
       value={{
@@ -55,7 +59,17 @@ console.log(filteredCourses)
         enrollCourses,
         setEnrollCourse,
         isEditClicked,
-        setIsEditClicked
+        setIsEditClicked,
+        selectedCourse,
+        setSelectedCourse,
+        ismoduleClick,
+        setModuleClick,
+        selectedLecture,
+        SetSelectedLecture,
+        isLectureClicked,
+        setIsLectureClicked,
+        searchList,
+        setSearchList,
       }}
     >
       {children}

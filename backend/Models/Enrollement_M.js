@@ -12,6 +12,10 @@ const Enrollments = sequelize.define("enrollments", {
     type: DataTypes.BOOLEAN,
     allowNull: false,
   },
+  courseId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 
 
