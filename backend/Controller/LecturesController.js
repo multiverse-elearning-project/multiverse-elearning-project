@@ -14,7 +14,8 @@ const createLecture = async (req, res, next) => {
       description,
       moduleModuleID,
     } = req.body;
-    if (!id||
+    if (
+      !id ||
       !lectureName ||
       !lectureUrl ||
       !lectureDuration ||
@@ -48,14 +49,15 @@ const getAllLectures = async (req, res, next) => {
 };
 const getAllLecturesByID = async (req, res, next) => {
   try {
-    const moduleModuleID = req.params.moduleModuleID;
+    ///const moduleModuleID = req.params.moduleModuleID;
     const lectureID = req.params.lectureID;
     const lectures = await Lectures.findAll({
       where: {
-        [Op.and]: [
-          { moduleModuleID: moduleModuleID },
-          { lectureID: lectureID },
-        ],
+        lectureID: lectureID,
+        // [Op.and]: [
+        //   { moduleModuleID: moduleModuleID },
+        //   { lectureID: lectureID },
+        // ],
       },
     });
     res.json(lectures);
