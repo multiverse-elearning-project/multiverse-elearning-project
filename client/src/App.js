@@ -6,8 +6,9 @@ import DashBoard from "./Pages/DashBoard/DashBoard";
 import CourseDetail from "./Pages/CourseDetail/CourseDetail";
 import ContactUs from "./Pages/ContactUsPage/ContactUs";
 import Profile from "./Pages/ProfilePage/Profile";
-import NewCourse from "./Components/NewCourse/NewCourse";
+import NewCourse from "./Pages/NewCoursePage/NewCourse";
 import NewContent from "./Components/NewCourseContent/NewContent";
+import NewCourseCard from "./Pages/NewCourseCardPage/NewCourseCard";
 import Enrolled from "./Pages/Enrolled/Enrolled";
 import Setting from "./Pages/Setting/Setting";
 
@@ -21,13 +22,22 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
           </Route>
           <Route path="/dashboard" element={<DashBoard />}>
-            <Route path="/dashboard/newcourse" element={<NewCourse />} />
-            <Route
+            {/* <Route path="/dashboard/newcourse" element={<NewCourse />} /> */}
+           {/* <Route
+              path="/dashboard/newcourse_content"
+              element={<NewContent />} 
+            />*/}
+          </Route>
+          <Route path="/course/:courseId" element={<CourseDetail />} />
+          <Route path="/newcourse" element={<NewCourse />} />
+          <Route
+              path="/newcourse_card"
+              element={<NewCourseCard />}
+            />
+          <Route
               path="/dashboard/newcourse_content"
               element={<NewContent />}
             />
-          </Route>
-          <Route path="/course/:courseId" element={<CourseDetail />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="enrolled" element={<Enrolled />} />

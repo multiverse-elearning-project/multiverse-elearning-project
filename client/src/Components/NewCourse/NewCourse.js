@@ -5,16 +5,17 @@ import styles from "./NewCourse.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link, useNavigate } from "react-router-dom";
 
-function ContactUs() {
+function NewCourse() {
   const navigate = useNavigate()
-  const handleNext =()=>{
-    navigate('/dashboard/newcourse_content')
+  const handleSubmit = () => {
+    // navigate('/dashboard/newcourse_content')
+    navigate('/newcourse_card')
   }
   return (
     <>
       <Form className={styles.contactusContainer}>
         <div className={styles.signIn_closebtn} title="close">
-          <Link to="/dashboard">
+          <Link to="/">
             <CloseIcon />
           </Link>
         </div>
@@ -46,12 +47,12 @@ function ContactUs() {
             placeholder="write a desription in 50 words."
           />
         </Form.Group>
-        <Button id="sendmsg-btn" className={styles.sendmsg_btn} type="submit" onClick={handleNext}>
-          Next
+        <Button id="sendmsg-btn" className={styles.sendmsg_btn} type="submit" onClick={handleSubmit}>
+          Submit
         </Button>
       </Form>
     </>
   );
 }
 
-export default ContactUs;
+export default NewCourse;

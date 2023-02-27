@@ -10,6 +10,7 @@ function MultiverseProvider({ children }) {
   const [filteredCourses, SetFilteredCourses] = useState(courses);
   const [enrollCourses, setEnrollCourse] = useState([]);
   const [isEditClicked, setIsEditClicked] = useState(false)
+  const [addNewCourses, setAddNewCourse] = useState([]);
 
 
   useEffect(() => {
@@ -55,7 +56,9 @@ console.log(filteredCourses)
         enrollCourses,
         setEnrollCourse,
         isEditClicked,
-        setIsEditClicked
+        setIsEditClicked,
+        addNewCourses,
+        setAddNewCourse
       }}
     >
       {children}
