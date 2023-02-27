@@ -7,7 +7,8 @@ import styles from "./CourseCard.module.css";
 import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function CourseCard({ courseDetail }) {
-  const { setEnrollCourse, userID } = useContext(MultiverseContext);
+  const { setEnrollCourse, userID, setSelectedCourse } =
+    useContext(MultiverseContext);
   const navigate = useNavigate();
 
   const handleEnrollment = async (courseId) => {
@@ -16,12 +17,19 @@ function CourseCard({ courseDetail }) {
         "https://course-api.com/javascript-store-products"
       );
       setEnrollCourse(enroll);
-      navigate(`/course/${enroll?.id || 1}`);
+      // navigate(`/course/${enroll?.id || 1}`);
     } catch (error) {
       console.log(error);
     }
   };
 
+  const fetchEnrolledCourse = async (selectedId) => {
+    const enrolledCourse = await axios.get(
+      `http://localhost:8080/courses/${selectedId}`
+    );
+    if (enrolledCourse.data) setSelectedCourse(enrolledCourse?.data);
+    navigate(`/course/${selectedId || 1}`);
+  };
   return (
     <div className={styles.courseCard}>
       <Card className={styles.innercourseCard}>
@@ -43,7 +51,10 @@ function CourseCard({ courseDetail }) {
           </div>
           <Button
             variant="primary"
-            onClick={() => handleEnrollment(courseDetail.Id)}
+            onClick={() => {
+              fetchEnrolledCourse(courseDetail.Id);
+              handleEnrollment(courseDetail.Id);
+            }}
           >
             Enroll
           </Button>

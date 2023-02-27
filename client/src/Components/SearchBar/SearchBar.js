@@ -6,24 +6,23 @@ import styles from "./SearchBar.module.css";
 import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function SearchBar() {
-  const { courses, SetFilteredCourses } = useContext(MultiverseContext);
-  console.log(courses);
+  const { filteredCourses, setSearchList } =
+    useContext(MultiverseContext);
 
   let inputRef = useRef(null);
   const handleSearch = (e) => {
     e.preventDefault();
-
     try {
-      const userInput = inputRef.current.value?.toLowerCase();
+      const userInput = inputRef.current.value;
       if (!userInput || typeof userInput !== "string")
-        SetFilteredCourses(courses);
+      setSearchList(filteredCourses);
       if (userInput || typeof userInput === "string") {
-        const foundCourses = courses.filter(
+        const foundCourses = filteredCourses?.filter(
           (course) =>
             course?.coursetittle?.match(new RegExp(userInput, "i")) ||
-            course?.coursedescr?.match(new RegExp(userInput, "i"))
+            course?.creator?.match(new RegExp(userInput, "i"))
         );
-        SetFilteredCourses(foundCourses);
+        setSearchList(foundCourses);
       }
     } catch (error) {
       console.log("something went wrong filter not working");
@@ -33,13 +32,13 @@ function SearchBar() {
     <Form className="d-flex">
       <Form.Control
         type="search"
-        placeholder="Search your courses"
+        placeholder="Search your by course or instructor"
         className="me-3"
         aria-label="Search"
         ref={inputRef}
         onChange={handleSearch}
       />
-      <Button className={styles.btn} onClick={handleSearch}>
+      <Button className={styles.btn} onChange={handleSearch}>
         Search
       </Button>
     </Form>

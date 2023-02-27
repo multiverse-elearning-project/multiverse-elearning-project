@@ -12,3 +12,7 @@
     border: 0.25px solid gray;
     background-color: aliceblue;
 }
+
+.hideLectures{
+display: none;
+}

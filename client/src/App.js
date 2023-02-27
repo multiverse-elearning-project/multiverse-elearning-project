@@ -10,6 +10,7 @@ import NewCourse from "./Components/NewCourse/NewCourse";
 import NewContent from "./Components/NewCourseContent/NewContent";
 import Enrolled from "./Pages/Enrolled/Enrolled";
 import Setting from "./Pages/Setting/Setting";
+import './App.css'
 
 function App() {
   return (
