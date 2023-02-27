@@ -1,0 +1,46 @@
+.contactusContainer {
+  background-color: #eeeeee;
+}
+
+.contactus_geading {
+  margin-bottom: 2rem;
+}
+.fileupload{
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 800px) {
+  .contactusContainer {
+    width: 60%;
+    padding: 4rem;
+    margin: 5rem auto;
+  }
+}
+@media screen and (max-width: 800px) {
+    .contactusContainer {
+      width: 80%;
+      padding: 4rem;
+      margin: 5rem auto;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .contactusContainer {
+      width: 95%;
+      padding: 2rem;
+      margin: 5rem auto;
+    }
+  }
+
+.finishmsg_btn{
+  margin-top: 0.05rem;
+  margin-left: 30rem;
+  text-align: right;
+}
+
+.signIn_closebtn {
+  text-align: right;
+  cursor: pointer;
+  color: black !important;
+
+}
+

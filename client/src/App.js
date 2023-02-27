@@ -8,7 +8,7 @@ import ContactUs from "./Pages/ContactUsPage/ContactUs";
 import Profile from "./Pages/ProfilePage/Profile";
 import NewCourse from "./Pages/NewCoursePage/NewCourse";
 import NewContent from "./Components/NewCourseContent/NewContent";
-import NewCourseCard from "./Pages/NewCourseCardPage/NewCourseCard";
+import NewCourseDetail from "./Pages/NewCourseDetailPage/NewCourseDetail";
 import Enrolled from "./Pages/Enrolled/Enrolled";
 import Setting from "./Pages/Setting/Setting";
 
@@ -32,7 +32,7 @@ function App() {
           <Route path="/newcourse" element={<NewCourse />} />
           <Route
               path="/newcourse_card"
-              element={<NewCourseCard />}
+              element={<NewCourseDetail />}
             />
           <Route
               path="/dashboard/newcourse_content"
