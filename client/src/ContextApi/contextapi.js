@@ -6,10 +6,13 @@ const MultiverseContext = React.createContext();
 function MultiverseProvider({ children }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [courses, SetCourses] = useState(mockdata);
+  const [newCourse, setNewCourse] = useState("");
+  const [newCourseDisplay, setNewCourseDisplay] = useState(false);
+  
   const [filteredCourses, SetFilteredCourses] = useState(courses);
   const [enrollCourses, setEnrollCourse] = useState([]);
   const [isEditClicked, setIsEditClicked] = useState(false)
-  const [addNewCourses, setAddNewCourse] = useState([]);
+  const [addedNewCourses, setAddedNewCourse] = useState([]);
 
 
   // useEffect(() => {
@@ -31,8 +34,12 @@ function MultiverseProvider({ children }) {
         setEnrollCourse,
         isEditClicked,
         setIsEditClicked,
-        addNewCourses,
-        setAddNewCourse
+        addedNewCourses,
+        setAddedNewCourse,
+        newCourse,
+        setNewCourse,
+        newCourseDisplay, 
+        setNewCourseDisplay
       }}
     >
       {children}
