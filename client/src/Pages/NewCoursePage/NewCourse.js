@@ -1,12 +1,12 @@
 import React from "react";
-import NewCourse from "../../Components/NewCourse/NewCourse";
+import NewCourseForm from "../../Components/NewCourse/NewCourseForm";
 import Footer from "../../Components/Footer/Footer";
 import NavbarMenu from "../../Components/Navbar/Navbar";
 function NewCourses() {
   return (
     <div>
       <NavbarMenu />
-      <NewCourse />
+      <NewCourseForm />
       <Footer/>
     </div>
   );

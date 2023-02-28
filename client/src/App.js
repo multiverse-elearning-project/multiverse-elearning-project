@@ -11,6 +11,7 @@ import NewContent from "./Components/NewCourseContent/NewContent";
 import NewCourseDetail from "./Pages/NewCourseDetailPage/NewCourseDetail";
 import Enrolled from "./Pages/Enrolled/Enrolled";
 import Setting from "./Pages/Setting/Setting";
+import "./App.css";
 
 function App() {
   return (
