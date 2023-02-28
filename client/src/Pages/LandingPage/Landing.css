@@ -12,11 +12,13 @@
   color: #ffa800;
   font-weight: bolder;
 }
-#logo-int{
-    color: #141F49;
+#logo-int {
+  color: #141f49;
+  font-size:2rem !important
 }
-#logo-sec{
-text-decoration:#ffa800 underline 7px solid ;
+#logo-sec {
+  text-decoration: #ffa800 underline 7px solid;
+  font-size:1.5rem !important
 }
 .headerContainer .auth-btn {
   border: 1px solid #a7a3a3;
@@ -24,7 +26,7 @@ text-decoration:#ffa800 underline 7px solid ;
   padding: 0.15rem 1rem;
   background: none;
   margin: 0 1rem;
-  color: #141F49;
+  color: #141f49;
 }
 
 .herosection {
@@ -36,7 +38,7 @@ text-decoration:#ffa800 underline 7px solid ;
 
 .headerContainer .authlink {
   text-decoration: none;
-  color: #141F49;
+  color: #141f49;
   font-weight: 600;
 }
 .herotitle {
@@ -51,10 +53,15 @@ text-decoration:#ffa800 underline 7px solid ;
   font-weight: bold;
 }
 .landingImage {
-  margin: 0 4rem;
+  margin: 4rem;
+  position: relative;
+  height: 500px
 }
 .landingImage img {
-  width: 100%;
+  position: absolute;
+  min-width: 100% !important;
+  min-height: 100%;
+
 }
 .heroImg {
   margin-left: 3rem;
@@ -63,13 +70,18 @@ text-decoration:#ffa800 underline 7px solid ;
 .heroImg img {
   width: 100%;
 }
+/* .footer{
+  display: sticky;
+  bottom: 0;
+  width:100%
+} */
 
-@media screen and (max-width:750px) {
-  .headerContainer{
+@media screen and (max-width: 750px) {
+  .headerContainer {
     flex-direction: column;
     text-align: center;
   }
-  .logo{
+  .logo {
     margin-bottom: 1rem;
   }
 }

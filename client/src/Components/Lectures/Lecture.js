@@ -13,22 +13,22 @@ function Lecture({ data, modul }) {
     setIsLectureClicked,
   } = useContext(MultiverseContext);
 
-  const viewLecture = async(lectId) => {
+  const viewLecture = async (lectId) => {
     const lectureclicked = isLectureClicked === lectId;
     if (!lectureclicked) {
       setIsLectureClicked(lectId);
     }
     // if (isLectureClicked === lectId) {
-      const Lecture =await axios.get(
-        `http://localhost:8080/courses/modules/lectures/${lectId}`
-      );
-      console.log(Lecture.data)
-      SetSelectedLecture(Lecture.data);
+    const Lecture = await axios.get(
+      `http://localhost:8080/courses/modules/lectures/${lectId}`
+    );
+    console.log(Lecture.data);
+    SetSelectedLecture(Lecture.data);
     // }
   };
 
   const clickCheck = ismoduleClick?.includes(modul?.moduleID);
-  console.log(isLectureClicked)
+  console.log(isLectureClicked);
   return (
     <>
       {clickCheck && (
@@ -37,7 +37,7 @@ function Lecture({ data, modul }) {
           className={`${styles.lecturecontainer} ${
             ismoduleClick.clicked === false && styles.hideLectures
           }`}
-          onClick={()=>viewLecture(lectureID)}
+          onClick={() => viewLecture(lectureID)}
         >
           <p className={styles.lecturetitle}>
             <input type="checkbox" className={styles.checkbox} />

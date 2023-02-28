@@ -24,7 +24,13 @@ function CourseDetail() {
                 <div key={mod?.moduleID} className="lectures-mod">
                   <Module moduletitle={mod} />
                   {mod?.lectures?.map((lesson) => {
-                    return <Lecture key={lesson.lectureID} data={lesson} modul={mod} />;
+                    return (
+                      <Lecture
+                        key={lesson.lectureID}
+                        data={lesson}
+                        modul={mod}
+                      />
+                    );
                   })}
                 </div>
               );
