@@ -1,11 +1,9 @@
 .footer_container {
-  position: relative;
-  bottom: 0;
-  right: 0;
-  left: 0;
   height: 250px;
   background-color: #eeeeee;
-  padding: 2rem 4rem 4rem 4rem;
+  padding: 1rem 4rem 2rem 4rem;
+  /* position: relative; */
+  width: 100%;
 }
 
 .footer_contact h5 {
@@ -53,5 +51,9 @@
 @media screen and (max-width: 535px) {
   .footer_social {
     flex-direction: column;
+  }
+  .footer_inner{
+    grid-template-columns: 1fr;
+    gap:0;
   }
 }

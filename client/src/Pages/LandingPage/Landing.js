@@ -40,7 +40,9 @@ function Landing() {
       <div className="authform">
         <Outlet />
       </div>
-      <Footer />
+      <div>
+        <Footer />
+      </div>
     </>
   );
 }

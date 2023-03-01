@@ -1,11 +1,11 @@
 .formcontainer {
   position: absolute;
-  top: 8rem;
+  top: 3.5rem;
   right: 4rem;
-  max-width: 700px;
+  max-width: 600px;
   min-width: 300px;
   background-color: #eeeeee;
-  padding: 2rem;
+  padding: 0.75rem 2rem;
 }
 
 .login_header {
