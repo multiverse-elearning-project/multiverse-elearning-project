@@ -1,6 +1,12 @@
 .contactusContainer {
   background-color: #eeeeee;
-}
+  position: absolute;
+  top: 3.5rem;
+  z-index: 100;
+  /* margin: 0 auto; */
+  left: 50%;
+  transform: translateX(-50%);
+  }
 .sendmsg_btn {
   margin-top: 2rem;
   text-align: right;
@@ -37,6 +43,9 @@
     color: black !important;
 
   }
+
+
+  
 /* @media screen and (max-width: 500px) {
   .contactusContainer {
     width: 80%;

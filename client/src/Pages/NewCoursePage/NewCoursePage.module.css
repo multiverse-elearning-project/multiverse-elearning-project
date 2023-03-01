@@ -1,0 +1,19 @@
+.coursesDashboard{
+  margin: 4rem 4rem;
+}
+.searchbar{
+  margin-bottom: 4rem;
+}
+.coursesCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 4rem;
+}
+.create_newcourse {
+  position: absolute;
+  top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
