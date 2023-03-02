@@ -3,6 +3,7 @@ import styles from "./Lecture.module.css";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import { MultiverseContext } from "../../ContextApi/contextapi";
 import axios from "axios";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function Lecture({ data, modul }) {
   const { id, lectureID, lectureName, lectureDuration } = data;
@@ -27,6 +28,11 @@ function Lecture({ data, modul }) {
     // }
   };
 
+  const  handleDelete = async () => {
+    const response =  await axios.delete(`http://localhost:8080/courses/modules/lectures/${lectureID}`)
+    console.log(response);
+   }
+
   const clickCheck = ismoduleClick?.includes(modul?.moduleID);
   console.log(isLectureClicked);
   return (
@@ -39,12 +45,15 @@ function Lecture({ data, modul }) {
           }`}
           onClick={() => viewLecture(lectureID)}
         >
-          <p className={styles.lecturetitle}>
+          <div className={styles.lectureheading}> 
+            <p className={styles.lecturetitle}>
             <input type="checkbox" className={styles.checkbox} />
             {`${id} - ${lectureName}`}
-          </p>
+            </p>
+            <div className={styles.lecturedelete} onClick={() => {handleDelete()}}> < DeleteIcon /> </div> 
+          </div>
           <p>
-            <PlayCircleIcon /> {lectureDuration}
+            <PlayCircleIcon /> {`${lectureDuration}`}
           </p>
         </div>
       )}

@@ -1,10 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import axios from "axios";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import styles from "./ModuleLect.module.css";
 import { MultiverseContext } from "../../ContextApi/contextapi";
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function Module({ moduletitle }) {
-  const { ismoduleClick, setModuleClick } = useContext(MultiverseContext);
+  const { ismoduleClick, setModuleClick, setAddLecture } = useContext(MultiverseContext);
 
   const handleModuleClick = (id) => {
     let ismoduleOpen = ismoduleClick.includes(id);
@@ -15,17 +18,25 @@ function Module({ moduletitle }) {
     }
   };
 
+  const  handleDelete = async (moduleID) => {
+    const response =  await axios.delete(`http://localhost:8080/modules/${moduleID}`)
+    console.log(response);
+   }
+
+  //  useEffect (() => {
+  
+  //  }, [filteredCourses])
+
   return (
-    <div
-      className={styles.modulesList}
-      onClick={() => {
-        handleModuleClick(moduletitle.moduleID);
-      }}
-    >
+    <div className={styles.modulesList}>
+
       <h6>{moduletitle?.moduleName}</h6>
-      <h6>
-        <KeyboardArrowDownIcon />
-      </h6>
+      <div className={styles.iconList}>
+        <div  onClick={() => { handleModuleClick(moduletitle.moduleID)}} className={styles.icon}><KeyboardArrowDownIcon /></div>
+        <div className={styles.icon}><AddIcon onClick={() => {setAddLecture(true)}}/></div>
+        <div className={styles.icon}><DeleteIcon onClick={() => {handleDelete(moduletitle.moduleID)}}/></div>  
+      </div>
+       
     </div>
   );
 }

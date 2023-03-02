@@ -16,3 +16,12 @@
 .hideLectures{
 display: none;
 }
+
+.lectureheading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lecturedelete {
+  margin-right: 2rem;
+}

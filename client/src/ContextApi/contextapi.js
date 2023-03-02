@@ -14,6 +14,10 @@ function MultiverseProvider({ children }) {
   const [ismoduleClick, setModuleClick] = useState([]);
   const [isLectureClicked, setIsLectureClicked] = useState("");
   const [selectedLecture, SetSelectedLecture] = useState([]);
+  const [isCloseClicked, setIsCloseClicked] = useState(true);
+  const [addModule, setAddModule ] = useState(false);
+  const [selectedModule, setSelectedModule] = useState();
+  const [addLecture, setAddLecture] = useState(false);
 
   useEffect(() => {
     async function FetchAllcourses() {
@@ -70,6 +74,14 @@ function MultiverseProvider({ children }) {
         setIsLectureClicked,
         searchList,
         setSearchList,
+        isCloseClicked, 
+        setIsCloseClicked,
+        addModule, 
+        setAddModule,
+        selectedModule, 
+        setSelectedModule,
+        addLecture, 
+        setAddLecture
       }}
     >
       {children}

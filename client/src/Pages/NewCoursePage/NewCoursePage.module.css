@@ -1,0 +1,41 @@
+.coursesDashboard{
+  margin: 4rem 4rem;
+}
+.searchbar{
+  margin-bottom: 4rem;
+}
+.coursesCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 4rem;
+}
+.create_newcourse {
+  position: absolute;
+  top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.detailcourseContainer{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2rem;
+  padding-left: 4rem;
+  padding-right: 1rem;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.lectureListContainer{
+  overflow-y: scroll;
+  background-color: #eeeeee;
+}
+
+.heading{
+  padding: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid gray;
+}
