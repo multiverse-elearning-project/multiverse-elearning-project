@@ -7,18 +7,27 @@ import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import styles from "./CreateCourse.module.css";
 import { MultiverseContext } from "../../ContextApi/contextapi";
+import ViewListIcon from '@mui/icons-material/ViewList';
 
 
 function CreateCourse({ data }) {
  
- const { setAddModule, filteredCourses } = useContext(MultiverseContext);
+ const { setAddModule, filteredCourses, setSelectedModule } = useContext(MultiverseContext);
+
+ const moduleViewHandler = async (selectedId) => {
+  const viewModule = await axios.get(
+    `http://localhost:8080/courses/${selectedId}`
+  );
+  console.log(viewModule.data.modules);
+  if (viewModule.data) setSelectedModule(viewModule?.data.modules);
+};
 
  const handleDelete = async (id) => {
   await axios.delete(`http://localhost:8080/courses/${id}`)
-}
+ }
 
  useEffect (() => {
-
+  
  }, [filteredCourses])
 
  
@@ -44,6 +53,9 @@ function CreateCourse({ data }) {
           <div className={styles["cta-btn"]}>
             <div onClick={()=> {setAddModule(true)}}>
             < AddIcon fontSize='inherit' />
+            </div>
+            <div onClick={() => {moduleViewHandler(data.Id)}}>
+             < ViewListIcon />
             </div>
             <div onClick={() => {handleDelete(data.Id)}}>
             < DeleteIcon fontSize='inherit'/>

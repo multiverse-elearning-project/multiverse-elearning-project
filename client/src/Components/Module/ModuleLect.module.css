@@ -16,3 +16,12 @@
     font-weight: bold;
     font-size: 1.75rem;
 }
+.iconList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.icon {
+    margin: 0 1rem;
+}
