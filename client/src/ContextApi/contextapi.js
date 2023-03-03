@@ -19,6 +19,7 @@ function MultiverseProvider({ children }) {
   const [selectedModule, setSelectedModule] = useState();
   const [addLecture, setAddLecture] = useState(false);
 
+
   useEffect(() => {
     async function FetchAllcourses() {
       const allcourses = await axios.get("http://localhost:8080/courses");

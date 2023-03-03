@@ -11,7 +11,7 @@ const credentials = require("./middlewares/credentials");
 const verifyJWT = require("./middlewares/VerifyJWT");
 
 app.use(credentials)
-app.use(cors(corsPolicy));
+app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(bodyParser.json());
@@ -27,12 +27,14 @@ const CoursesRoute = require("./routes/Courses_r");
 const ModulesRoute = require("./routes/Modules_r");
 const LecturesRoute = require("./routes/Lectures_r");
 const EnrollementRoute = require("./routes/enrollement_r");
+const AuthCheckerRoute = require("./routes/AuthChecker_r");
 
 //use all custom routes and middlewares
 app.use("/signup", RegRoute);
 app.use("/signin", LoginRoute);
 app.use("/refresh", RefreshTokenRoute);
 app.use("/signout", LogoutRoute);
+app.use("/authChecker", AuthCheckerRoute);
 app.use("/enroll", EnrollementRoute);
 app.use("/courses", CoursesRoute);
 app.use("/modules", ModulesRoute);

@@ -5,6 +5,7 @@ const { CourseModules } = require("./Modules_M");
 const { Users } = require("./Users_M");
 const { Payments } = require("./Payment_M");
 const { Enrollments } = require("./Enrollement_M");
+const { AuthChecker } = require("./AuthChecker_M");
 
 //model association
 Users.hasMany(Courses, {
@@ -49,4 +50,5 @@ module.exports = {
   Users,
   Payments,
   Enrollments,
+  AuthChecker,
 };

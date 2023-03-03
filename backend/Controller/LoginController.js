@@ -45,10 +45,49 @@ const LoginHandeler = async (req, res) => {
     });
     res
       .status(200)
-      .json({ Authorized: true, accessToken: accessToken, role: role });
+      .json({ Authorized: true, accessToken: accessToken, role: role, Id: subscribedUser.userID });
   } else {
     res.status(401).json({ message: "something went wrong" }); //unauthorized
   }
 };
 
-module.exports = { LoginHandeler };
+const getUserByID = async (req, res, next) => {
+  try {
+    const selectedUser = await Users.findOne({
+      where: { userID: req.params.userID },
+      /*include: [
+        {
+          model: enroll,
+        },
+      ],*/
+    });
+    res.json(selectedUser);
+  } catch (error) {
+    res.status(500).json({ message: error.message }); // server error
+    next(error);
+  }
+};
+
+const editSingleUser = async (req, res, next) => {
+  const { userID, firstName, lastName, password, email, avatarImage } = req.body;
+  const payload = {
+    userID,
+    firstName,
+    lastName,
+    password,
+    email,
+    avatarImage
+  };
+  try {
+    const updatedUser = await Users.update(payload, {
+      where: {
+        userID: req.params.userID,
+      },
+    });
+    res.send(updatedUser);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { LoginHandeler, getUserByID, editSingleUser };
