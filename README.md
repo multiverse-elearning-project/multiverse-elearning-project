@@ -30,9 +30,16 @@ Our experience tells us that skills are universal but oppurtunities are influenc
 Because of time constraints, we have not completed all modules. However, the first module indicates the direction project will continue by us or any developers who seeks to build on our foundation. 
 
 Additionally, UI can be modified to be more personalized and presentable. Our main focus was on understanding the backend architecture while also reinforcing some cocepts on the front-end.
+
 ☕ Team Mates 
+
 👤 **Getu, Yared, Benjamin, and Jordan**
+
 @YaredBachaGari, @bcabr, @JordanPHornback, @getuengda 
+
+## ‎‍💻 Code Contributors
+
+<img src="https://opencollective.com/fiber/contributors.svg?width=890&button=false" alt="Code Contributors" style="max-width:100%;">
 
 
 
