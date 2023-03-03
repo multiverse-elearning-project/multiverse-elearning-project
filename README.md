@@ -39,7 +39,10 @@ Additionally, UI can be modified to be more personalized and presentable. Our ma
 
 ## ‎‍💻 Code Contributors
 
-👤 **Yared, Getu, Benjamin, and Jordan**
+<img src="https://avatars.githubusercontent.com/u/24825276?v=4?width=20&" alt="Code Contributors" style="max-width:100%;">
+<img src="https://avatars.githubusercontent.com/u/102699173?v=4?width=75&button=false" alt="Code Contributors" style="border-radius: 50%;">
+<img src="https://avatars.githubusercontent.com/u/86804213?v=4?width=890&button=false" alt="Code Contributors" style="max-width:100%;">
+<img src="https://avatars.githubusercontent.com/u/102699173?v=4?width=75&button=false" alt="Code Contributors" style="border-radius: 50%;">
 
 
 
