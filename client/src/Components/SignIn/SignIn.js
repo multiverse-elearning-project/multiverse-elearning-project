@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import styles from "./SignIn.module.css";
@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function SignIn() {
   const navigate = useNavigate();
+  const {user, setUser} = useContext(MultiverseContext);
   const [existingUser, setExistingUser] = useState({
     email: "",
     password: "",
@@ -32,12 +34,20 @@ function SignIn() {
         "http://localhost:8080/signin",
         existingUser
       );
+
+      if (response) {
+        localStorage.setItem("user", JSON.stringify(response.data.Id));
+      }
+
       if (response.status !== 200) return setSignInError(response.message);
       navigate("/dashboard");
     } catch (error) {
       setSignInError(error.message);
     }
   };
+  console.log(user);
+  //useEffect( async () => {await axios.post("http://localhost:8080/authChecker", loggedInUser);}, [loggedInUser])
+
   return (
     <div className={styles.SignIn_wrapper}>
       <div className={styles.signIn_closebtn} title="close">
