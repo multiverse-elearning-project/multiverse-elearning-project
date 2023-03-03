@@ -1,6 +1,6 @@
 .formcontainer {
   position: absolute;
-  top: 3.5rem;
+  top: 8rem;
   right: 4rem;
   max-width: 600px;
   min-width: 300px;
@@ -17,6 +17,7 @@
   padding: 0.5rem 2.5rem;
   margin-bottom: 1rem;
 }
+
 .signUp_closebtn {
   text-align: right;
   cursor: pointer;

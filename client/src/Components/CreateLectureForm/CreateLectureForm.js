@@ -9,7 +9,7 @@ import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function CreateLectureForm() {
 
-  const {isCloseClicked, setIsCloseClicked, addLecture, setAddLecture} = useContext(MultiverseContext);
+  const {addLecture, setAddLecture} = useContext(MultiverseContext);
   const [createdLecture, setCreatedLecture] = useState();
 
   const [lectureData, setLectureData] = useState({
@@ -46,7 +46,7 @@ function CreateLectureForm() {
             <CloseIcon onClick={() => setAddLecture(false)}/>
           </Link>
         </div>
-        <h3 className={styles.contactus_geading}>Create New Lecture!</h3>
+        <h3 className={styles.contactus_heading}>Create New Lecture 🗒️ 🎵</h3>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Lecture Id</Form.Label>
           <Form.Control type="number" name="id" placeholder="enter course id" onChange={handleOnChange}/>

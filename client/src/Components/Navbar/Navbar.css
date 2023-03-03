@@ -11,13 +11,15 @@
 
 Nav .menu-list {
   color: #000000;
+  font-weight: bold;
 }
 @media screen and (min-width: 765px) {
   Nav .menu-list {
     color: #ffffff;
   }
   Nav .menu-list:hover {
-    color: #ffa800;
+     background-color: #ffa800;
+     margin-right: 0;
   }
 }
 Nav .dispbtn{
@@ -53,6 +55,6 @@ Nav .dispbtn{
   }
   .menu-list:hover{
     text-decoration: 3px solid underline rgba(9, 5, 59, 0.823);
-    background-color: aliceblue;
+    background-color: #ffa800;;
   }
 }

@@ -1,10 +1,8 @@
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
+import React, { useContext, useEffect } from "react";
 import Card from "react-bootstrap/Card";
-import { useNavigate } from "react-router-dom";
 import styles from "./CreateCourse.module.css";
 import { MultiverseContext } from "../../ContextApi/contextapi";
 import ViewListIcon from '@mui/icons-material/ViewList';
@@ -51,14 +49,14 @@ function CreateCourse({ data }) {
             <p className={styles["courseprice"]}>{`$${data?.price}`}</p>
           </div>
           <div className={styles["cta-btn"]}>
-            <div onClick={()=> {setAddModule(true)}}>
-            < AddIcon fontSize='inherit' />
+            <div onClick={()=> {setAddModule(true)}} title="Add module">
+            < AddIcon className={styles.largeIcon} />
             </div>
-            <div onClick={() => {moduleViewHandler(data.Id)}}>
-             < ViewListIcon />
+            <div onClick={() => {moduleViewHandler(data.Id)}} title="View module">
+             < ViewListIcon className={styles.largeIcon}/>
             </div>
-            <div onClick={() => {handleDelete(data.Id)}}>
-            < DeleteIcon fontSize='inherit'/>
+            <div onClick={() => {handleDelete(data.Id)}} title="Delete course">
+            < DeleteIcon className={styles.largeIcon}/>
             </div>
             
           </div>
