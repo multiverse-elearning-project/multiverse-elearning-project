@@ -6,6 +6,12 @@ As Enginners in the Multiverse Apprenticesip Program, we want to be able to crea
 ## 💡 Philosophy
 Our experience tells us that skills are universal but oppurtunities are influenced by circumstancial enviorments. Our goal is to connect aspiring learners to the best instructors in their respective fields. Onwards!
 
+## Demo 
+<p align="center">
+  <img src="Screen Shot 2023-03-03 at 2.38.24 PM<img width="1397" alt="Screen Shot 2023-03-03 at 2 38 24 PM" src="https://user-images.githubusercontent.com/94465317/222844572-2ea77aa6-146e-46b8-a27b-e34f7c77955e.png">
+" width="100%" title="Landing Page">
+<p align="center">
+
 ## ⚙️ Installation
 Make sure you have Node.js and npm installed. Install latest version:
 
@@ -73,6 +79,5 @@ Additionally, UI can be modified to be more personalized and presentable. Our ma
 <p align="left">
 
 
-
-
+<img width="1397" alt="Screen Shot 2023-03-03 at 2 38 24 PM" src="https://user-images.githubusercontent.com/94465317/222844595-b7e34480-454d-42cc-9707-2e494a7cefef.png">
 
