@@ -100,7 +100,7 @@ function SignUp() {
             label="I agree with terms and conditions of Multiverse E-learning platform usage."
           />
         </Form.Group>
-        <Button id={styles.signup_btn} type="submit">
+        <Button className={styles.signup_btn} type="submit">
           Create an Account
         </Button>
       </Form>

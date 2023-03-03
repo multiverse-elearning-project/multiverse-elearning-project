@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Avatar.module.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { threeDotMenu } from "../DynamicData";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 function Avatar({ profileImg, name }) {
   const [isClicked, setIsClicked] = useState(false);
 
@@ -22,12 +22,13 @@ function Avatar({ profileImg, name }) {
         className={styles.threedots}
         onClick={() => setIsClicked(!isClicked)}
       />
-
       <ul className={styles.moremenu}>
         {isClicked &&
           threeDotMenu.map((menu, ind) => (
             <li key={ind} className={styles.moremenulist}>
-            <Link to={menu.menuLink} className={styles.options}>{menu.menuName}</Link>
+              <Link to={menu.menuLink} className={styles.options}>
+                {menu.menuName}
+              </Link>
             </li>
           ))}
       </ul>

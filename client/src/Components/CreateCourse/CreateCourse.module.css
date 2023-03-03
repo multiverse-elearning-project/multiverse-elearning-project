@@ -32,3 +32,11 @@ font-weight: bold;
   font-style: italic;
   color:rgb(137, 138, 139)
 }
+
+.largeIcon {
+  font-size: 150% !important;
+}
+
+.largeIcon:hover{
+  cursor: pointer;
+}

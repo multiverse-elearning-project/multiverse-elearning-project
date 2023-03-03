@@ -77,7 +77,7 @@ function SignIn() {
           SignIn
         </Button>
         <div>
-          <Link to={"/signout"}>Create a new account</Link>
+          <Link to={"/signup"}>Create a new account</Link>
         </div>
       </Form>
     </div>

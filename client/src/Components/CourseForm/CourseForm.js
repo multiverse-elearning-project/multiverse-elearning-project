@@ -46,9 +46,8 @@ function CourseForm() {
           <Link to="/newcourse">
             <CloseIcon onClick={() => setIsCloseClicked(false)}/>
           </Link>
-    
         </div>
-        <h3 className={styles.contactus_geading}>Create New Course !</h3>
+        <h1 className={styles.contactus_heading}>Create New Course 📕</h1>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Course Name</Form.Label>
           <Form.Control type="text" name="courseName" placeholder="enter course name" onChange={handleOnChange}/>
@@ -74,14 +73,14 @@ function CourseForm() {
           <Form.Label>Description </Form.Label>
           <Form.Control
             as="textarea" 
-            maxlength="100"
+            maxlength="200"
             name="description"
             rows={3}
-            placeholder="write a desription in 50 words."
+            placeholder="write a desription in 100 words."
             onChange={handleOnChange}
           />
         </Form.Group>
-        <Button id="sendmsg-btn" className={styles.sendmsg_btn} type="submit" onClick={handleSubmit}>
+        <Button id="sendmsg-btn" className={`${styles.sendmsg_btn} ${styles["btn-primary"]}`} type="submit" onClick={handleSubmit}>
           Submit
         </Button>
       </Form>

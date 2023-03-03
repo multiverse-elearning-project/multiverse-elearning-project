@@ -1,34 +1,39 @@
-import React, { useContext } from 'react';
-import CourseForm from '../../Components/CourseForm/CourseForm';
-import NavbarMenu from '../../Components/Navbar/Navbar';
-import Footer from '../../Components/Footer/Footer';
-import CreateCourse from '../../Components/CreateCourse/CreateCourse';
-import { MultiverseContext } from '../../ContextApi/contextapi';
-import styles from './NewCoursePage.module.css'
-import AddNewModule from '../../Components/AddNewModule/AddNewModule';
-import Module from '../../Components/Module/Module';
-import Lecture from '../../Components/Lectures/Lecture';
-import CreateLectureForm from '../../Components/CreateLectureForm/CreateLectureForm';
+import React, { useContext, useState } from "react";
+import CourseForm from "../../Components/CourseForm/CourseForm";
+import NavbarMenu from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
+import CreateCourse from "../../Components/CreateCourse/CreateCourse";
+import { MultiverseContext } from "../../ContextApi/contextapi";
+import styles from "./NewCoursePage.module.css";
+import AddNewModule from "../../Components/AddNewModule/AddNewModule";
+import Module from "../../Components/Module/Module";
+import Lecture from "../../Components/Lectures/Lecture";
+import CreateLectureForm from "../../Components/CreateLectureForm/CreateLectureForm";
+import ListIcon from "@mui/icons-material/List";
 
 function NewCoursePage() {
-  const { filteredCourses, SetFilteredCourses, selectedCourse, selectedModule } =
-    useContext(MultiverseContext);
-
-  // const initialPreview = selectedCourse?.modules;
-  console.log(selectedModule)
+  const { filteredCourses, selectedModule } = useContext(MultiverseContext);
+  const [showModule, setShowModule] = useState(false)
   return (
-    <div>
-      < NavbarMenu />
-      < AddNewModule />
-      < CourseForm />
+    <div className={styles["container"]}>
+      <NavbarMenu />
+      <AddNewModule />
+      <CourseForm />
       <CreateLectureForm />
-      <div className={styles.detailcourseContainer}>
-      <div className={styles['coursesCard']}>
-       {filteredCourses?.map((course) => {
-        return  < CreateCourse key={course.id} data={course}/>
-      })} 
+      <div className={styles.showmodules}>
+        <ListIcon className={styles.largeIcon} onClick={()=>setShowModule(!showModule)}/>
       </div>
-      <aside className={styles.lectureListContainer}>
+      <div className={styles.detailcourseContainer}>
+        <div className={styles["coursesCard"]}>
+          {filteredCourses?.map((course) => {
+            return (
+              <div className={styles["Card"]}>
+                <CreateCourse key={course.id} data={course} />
+              </div>
+            );
+          })}
+        </div>
+        <aside className={`${styles.lectureListContainer} ${!showModule && styles.nodisplay}`}>
           <h5 className={styles.heading}>Content</h5>
           {selectedModule?.length > 0 &&
             selectedModule?.map((mod) => {
@@ -48,11 +53,10 @@ function NewCoursePage() {
               );
             })}
         </aside>
-        </div>
-      < Footer />
+      </div>
+      <Footer />
     </div>
-    
-  )
+  );
 }
 
-export default NewCoursePage
+export default NewCoursePage;

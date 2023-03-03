@@ -1,21 +1,66 @@
-.detailcourseContainer{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 2rem;
-    padding-left: 4rem;
-    padding-right: 1rem;
-    overflow: hidden;
-    height: 100vh;
+.detailcourseContainer {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2rem;
+  padding-left: 4rem;
+  padding-right: 1rem;
+  overflow: hidden;
+  height: 100%;
 }
 
-.lectureListContainer{
-    overflow-y: scroll;
-    background-color: #eeeeee;
+.lectureListContainer {
+  overflow-y: scroll;
+  background-color: #eeeeee;
 }
 
-.heading{
-    padding: 1rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid gray;
+.heading {
+  padding: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid gray;
+}
+.largeIcon {
+  position: absolute;
+  font-size: 200% !important;
+  margin-left: 4rem;
+  margin-top: 1rem;
+}
+
+.largeIcon:hover {
+  cursor: pointer;
+}
+@media screen and (min-width: 1125px) {
+  .viewmodules {
+    display: none;
+  }
+}
+@media screen and (max-width: 1125px) {
+  .detailcourseContainer {
+    display: block;
+    z-index: 120;
+  }
+  .lectureListContainer {
+    position: absolute;
+    top: 10rem;
+    left: 4rem;
+    min-width: 300px;
+    z-index: 200;
+  }
+  .nodisplay {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .detailcourseContainer {
+    padding-left: 1rem;
+  }
+  .viewmodules {
+    left: 1rem;
+  }
+  .lectureListContainer {
+    left: 1rem;
+  }
+  .largeIcon {
+    margin-left: 1rem;
+  }
 }

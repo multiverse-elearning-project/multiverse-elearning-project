@@ -19,12 +19,15 @@
   cursor: pointer;
   margin-left: 1rem;
 }
+.threedots:hover{
+  color:#ffa800;
+}
 .moremenu {
-  background-color: #eeeeee;
+  background-color: #212529;
   position: absolute;
   top: 6rem;
   right: 0;
-  padding: 0 2rem;
+  padding: 0;
   text-align: center;
   list-style: none;
   cursor: pointer;
@@ -32,14 +35,15 @@
   z-index: 100;
 }
 .moremenulist {
-  margin: 1rem 0;
+  margin: 1rem auto;
+  padding: .25rem 2rem;
 }
 .options{
-color: black;
+color: white;
 }
 .moremenulist:hover {
   text-decoration: 3px solid underline rgba(9, 5, 59, 0.823);
-  background-color: aliceblue;
+  background-color: #ffa800;;
 }
 @media screen and (max-width: 992px) {
   .avatarcontainer {

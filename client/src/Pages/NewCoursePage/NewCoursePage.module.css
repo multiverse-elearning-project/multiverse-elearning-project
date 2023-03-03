@@ -7,8 +7,8 @@
 .coursesCard{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 4rem;
+  justify-content: space-evenly;
+  margin: 4rem 0;
 }
 .create_newcourse {
   position: absolute;
@@ -20,12 +20,12 @@
 
 .detailcourseContainer{
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 1.25fr;
   gap: 2rem;
   padding-left: 4rem;
   padding-right: 1rem;
   overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .lectureListContainer{
@@ -38,4 +38,68 @@
   font-weight: bold;
   margin-bottom: 1rem;
   border-bottom: 1px solid gray;
+}
+.creaateCourse-container{
+  min-height: 100%;
+}
+.showmodules{
+  position: absolute;
+  top: 7rem;
+  left: 4rem;
+}
+.largeIcon {
+  font-size: 200% !important;
+}
+
+.largeIcon:hover {
+  cursor: pointer;
+}
+@media screen and (max-width:990px) {
+  .detailcourseContainer{
+    display: block;
+  }
+  .coursesCard{
+    justify-content: space-around;
+  }
+  .Card{
+    margin-right: 2rem;
+  }
+  .coursesDashboard{
+    margin: 4rem 0rem;
+  }
+  .nodisplay{
+    display: none;
+  }
+  .lectureListContainer {
+    position: absolute;
+    top: 10rem;
+    left: 4rem;
+    min-width: 300px;
+    z-index: 200;
+  }
+}
+@media screen and (min-width:990px) {
+  .showmodules{
+    display: none;
+  }
+}
+@media screen and (max-width:685px) {
+  .Card{
+    margin-right: 0rem;
+  }
+  .coursesDashboard{
+    margin: 4rem 1rem;
+  }
+  .detailcourseContainer{
+    padding-left: 1rem;
+  }
+}
+
+@media screen and (max-width:500px){
+  .showmodules{
+    left: 3rem;
+  }
+  .lectureListContainer {
+    left: 3rem;
+  }
 }
