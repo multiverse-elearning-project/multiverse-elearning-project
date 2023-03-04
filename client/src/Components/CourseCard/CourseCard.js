@@ -7,7 +7,7 @@ import styles from "./CourseCard.module.css";
 import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function CourseCard({ courseDetail }) {
-  const { setEnrollCourse, userID, setSelectedCourse } =
+  const { setEnrollCourse, setSelectedCourse } =
     useContext(MultiverseContext);
   const navigate = useNavigate();
 

@@ -12,8 +12,9 @@ import CreateLectureForm from "../../Components/CreateLectureForm/CreateLectureF
 import ListIcon from "@mui/icons-material/List";
 
 function NewCoursePage() {
-  const { filteredCourses, selectedModule } = useContext(MultiverseContext);
+  const { filteredCourses, selectedModule, auth } = useContext(MultiverseContext);
   const [showModule, setShowModule] = useState(false)
+  console.log(auth)
   return (
     <div className={styles["container"]}>
       <NavbarMenu />

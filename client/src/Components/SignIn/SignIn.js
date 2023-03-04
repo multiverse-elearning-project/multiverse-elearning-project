@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import styles from "./SignIn.module.css";
@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function SignIn() {
   const navigate = useNavigate();
+  const {setAuth} = useContext(MultiverseContext)
   const [existingUser, setExistingUser] = useState({
     email: "",
     password: "",
@@ -32,8 +34,9 @@ function SignIn() {
         "http://localhost:8080/signin",
         existingUser
       );
+      await setAuth(response)
       if (response.status !== 200) return setSignInError(response.message);
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: false });
     } catch (error) {
       setSignInError(error.message);
     }

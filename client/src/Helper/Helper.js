@@ -5,7 +5,9 @@ export const getAllCourses = () => {
   try {
     courses = axios.get("url");
   } catch (error) {
-    console.log('error occured when i try to fetch all courses');
+    console.log("error occured when i try to fetch all courses");
   }
-  return courses
+  return courses;
 };
+
+

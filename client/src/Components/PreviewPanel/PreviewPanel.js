@@ -4,7 +4,7 @@ import styles from "./PreviewPanel.module.css";
 
 function PreviewPanel() {
   const { selectedLecture } = useContext(MultiverseContext);
-  const selection = selectedLecture[0]?.lectureUrl;
+  //const selection = selectedLecture[0]?.lectureUrl;
  
   return (
     <main className={styles.previewsection}>

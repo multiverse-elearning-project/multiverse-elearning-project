@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignIn from "./Components/SignIn/SignIn";
 import SignUp from "./Components/SignUp/SignUp";
 import Landing from "./Pages/LandingPage/Landing";
@@ -14,14 +14,13 @@ import "./App.css";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={<Landing />}>
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
           </Route>
-          <Route path="/dashboard" element={<DashBoard />}>
-          </Route>
+          <Route path="/dashboard" element={<DashBoard />}></Route>
           <Route path="/course/:courseId" element={<CourseDetail />} />
           <Route path="/newcourse" element={<NewCoursePage />} />
           <Route path="/contactus" element={<ContactUs />} />
@@ -29,7 +28,7 @@ function App() {
           <Route path="enrolled" element={<Enrolled />} />
           <Route path="setting" element={<Setting />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </>
   );
 }

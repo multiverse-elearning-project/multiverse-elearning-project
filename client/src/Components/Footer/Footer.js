@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import styles from "./Footer.module.css";
 import { HeroTextx } from "../DynamicData";
 import FacebookIcon from "@mui/icons-material/Facebook";
