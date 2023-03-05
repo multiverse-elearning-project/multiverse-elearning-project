@@ -52,7 +52,28 @@ function MultiverseProvider({ children }) {
   };
 
   useEffect(() => {
-    FilterCardData(courses);
+    const sortedcourseByDate = courses?.sort((a, b) => {
+      if (a.courseReleaseDate < b.courseReleaseDate) return -1;
+      if (a.courseReleaseDate > b.courseReleaseDate) return 1;
+    });
+
+    const sortedcourselectureID = sortedcourseByDate?.map((cours) => {
+      if (cours.modules) {
+        return cours?.modules?.map((mod) =>
+          mod?.lectures?.sort((a, b) => {
+            if (a.id < b.id) return -1;
+            if (a.id > b.id) return 1;
+          })
+        );
+      }
+
+      // return cours?.modules
+    });
+
+    console.log(sortedcourseByDate);
+    console.log("lecture", sortedcourselectureID);
+    //FilterCardData(courses);
+    FilterCardData(sortedcourseByDate);
   }, [courses]);
   console.log(auth);
   console.log(addToModuleID);

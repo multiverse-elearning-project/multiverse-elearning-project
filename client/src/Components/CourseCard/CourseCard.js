@@ -7,8 +7,7 @@ import styles from "./CourseCard.module.css";
 import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function CourseCard({ courseDetail }) {
-  const { setEnrollCourse, setSelectedCourse } =
-    useContext(MultiverseContext);
+  const { setEnrollCourse, setSelectedCourse } = useContext(MultiverseContext);
   const navigate = useNavigate();
 
   const handleEnrollment = async (courseId) => {
@@ -32,7 +31,7 @@ function CourseCard({ courseDetail }) {
   };
   return (
     <div className={styles.courseCard}>
-      <Card className={styles.innercourseCard}>
+      <Card className={styles.innercourseCard} style={{ height: "450px" }}>
         <div className="ratio ratio-16x9">
           <iframe
             src={courseDetail?.vedioUrl}
@@ -42,7 +41,11 @@ function CourseCard({ courseDetail }) {
         </div>
         <Card.Body>
           <Card.Title>{courseDetail?.coursetittle}</Card.Title>
-          <Card.Text>{courseDetail?.coursedescr}</Card.Text>
+          <Card.Text>
+            {courseDetail?.coursedescr?.length > 200
+              ? courseDetail?.coursedescr?.slice(0, 200) + "..."
+              : courseDetail?.coursedescr}
+          </Card.Text>
           <div className={styles["price-creator"]}>
             <p
               className={styles["createdby"]}
@@ -50,7 +53,13 @@ function CourseCard({ courseDetail }) {
             <p className={styles["courseprice"]}>{`$${courseDetail?.price}`}</p>
           </div>
           <Button
-            variant="primary"
+          className={styles["btn"]}
+            style={{
+              position: "absolute",
+              bottom: "15px",
+              backgroundColor: "#141f49",
+              borderRadius: 0,
+            }}
             onClick={() => {
               fetchEnrolledCourse(courseDetail.Id);
               handleEnrollment(courseDetail.Id);

@@ -1,22 +1,22 @@
-.dashboard-container{
-    min-height: 100%;
+.dashboard-container {
+  min-height: 100%;
 }
-.coursesDashboard{
-    margin: 4rem 4rem;
+.coursesDashboard {
+  margin: 4rem 4rem;
 }
-.searchbar{
-    margin-bottom: 4rem;
+.searchbar {
+  margin-bottom: 4rem;
 }
-.coursesCard{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-grow: 1;
+.coursesCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-grow: 1;
 }
 .create_newcourse {
-    position: absolute;
-    top: 1.25rem;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
+  position: absolute;
+  top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

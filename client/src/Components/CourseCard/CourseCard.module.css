@@ -1,28 +1,30 @@
-.courseCard{
-    min-width: 300px;
-    max-width: 400px;
-    margin-bottom: 4rem;
+.courseCard {
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 450px !important;
+  margin-bottom: 4rem;
 }
-.innercourseCard{
-    width: 100%;
+.innercourseCard {
+  width: 100%;
 }
-.cta{
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.cta {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-.courseprice{
+.courseprice {
   text-align: center;
   font-weight: bold;
 }
-.btn{
-    border-radius: 0 !important;
+.btn:hover {
+  background-color: #ffa800 !important;
+  color: #141f49 !important;
 }
-.price-creator{
-    display: flex;
-    justify-content: space-between;
+.price-creator {
+  display: flex;
+  justify-content: space-between;
 }
-.createdby{
-    font-style: italic;
-    color:rgb(137, 138, 139)
+.createdby {
+  font-style: italic;
+  color: rgb(137, 138, 139);
 }

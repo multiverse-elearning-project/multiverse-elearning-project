@@ -9,5 +9,3 @@ export const getAllCourses = () => {
   }
   return courses;
 };
-
-

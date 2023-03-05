@@ -32,15 +32,20 @@ function CourseDetail() {
               return (
                 <div key={mod?.moduleID} className="lectures-mod">
                   <Module moduletitle={mod} />
-                  {mod?.lectures?.map((lesson) => {
-                    return (
-                      <Lecture
-                        key={lesson.lectureID}
-                        data={lesson}
-                        modul={mod}
-                      />
-                    );
-                  })}
+                  {mod?.lectures
+                    ?.sort((a, b) => {
+                      if (a.id < b.id) return -1;
+                      if (a.id > b.id) return 1;
+                    })
+                    ?.map((lesson) => {
+                      return (
+                        <Lecture
+                          key={lesson.lectureID}
+                          data={lesson}
+                          modul={mod}
+                        />
+                      );
+                    })}
                 </div>
               );
             })}
