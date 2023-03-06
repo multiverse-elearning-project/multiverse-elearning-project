@@ -12,8 +12,10 @@ import CreateLectureForm from "../../Components/CreateLectureForm/CreateLectureF
 import ListIcon from "@mui/icons-material/List";
 
 function NewCoursePage() {
-  const { filteredCourses, selectedModule } = useContext(MultiverseContext);
-  const [showModule, setShowModule] = useState(false)
+  const { filteredCourses, selectedModule, auth } =
+    useContext(MultiverseContext);
+  const [showModule, setShowModule] = useState(false);
+  console.log(auth);
   return (
     <div className={styles["container"]}>
       <NavbarMenu />
@@ -21,7 +23,10 @@ function NewCoursePage() {
       <CourseForm />
       <CreateLectureForm />
       <div className={styles.showmodules}>
-        <ListIcon className={styles.largeIcon} onClick={()=>setShowModule(!showModule)}/>
+        <ListIcon
+          className={styles.largeIcon}
+          onClick={() => setShowModule(!showModule)}
+        />
       </div>
       <div className={styles.detailcourseContainer}>
         <div className={styles["coursesCard"]}>
@@ -33,22 +38,31 @@ function NewCoursePage() {
             );
           })}
         </div>
-        <aside className={`${styles.lectureListContainer} ${!showModule && styles.nodisplay}`}>
+        <aside
+          className={`${styles.lectureListContainer} ${
+            !showModule && styles.nodisplay
+          }`}
+        >
           <h5 className={styles.heading}>Content</h5>
           {selectedModule?.length > 0 &&
             selectedModule?.map((mod) => {
               return (
                 <div key={mod?.moduleID} className="lectures-mod">
                   <Module moduletitle={mod} />
-                  {mod?.lectures?.map((lesson) => {
-                    return (
-                      <Lecture
-                        key={lesson.lectureID}
-                        data={lesson}
-                        modul={mod}
-                      />
-                    );
-                  })}
+                  {mod?.lectures
+                    ?.sort((a, b) => {
+                      if (a.id < b.id) return -1;
+                      if (a.id > b.id) return 1;
+                    })
+                    ?.map((lesson) => {
+                      return (
+                        <Lecture
+                          key={lesson.lectureID}
+                          data={lesson}
+                          modul={mod}
+                        />
+                      );
+                    })}
                 </div>
               );
             })}

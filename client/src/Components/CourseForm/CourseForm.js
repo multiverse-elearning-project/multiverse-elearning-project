@@ -6,11 +6,13 @@ import styles from "./CourseForm.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import { MultiverseContext } from "../../ContextApi/contextapi";
+import jwt_decode from "jwt-decode";
 
 function CourseForm() {
 
-  const {isCloseClicked, setIsCloseClicked} = useContext(MultiverseContext);
-  const [createdCourse, setCreatedCourse] = useState();
+  const {isCloseClicked, setIsCloseClicked, auth,setCreatedCourse} = useContext(MultiverseContext);
+  const loggedInUser = jwt_decode(auth.data.accessToken).userInfo.id
+  //console.log(jwt_decode(auth.data.accessToken).userInfo.id)
 
   const [formData, setFormData] = useState({
     courseName: "",
@@ -18,9 +20,6 @@ function CourseForm() {
     coursePrice: 0,
     courseReleaseDate: "",
     description: "",
-    userUserID: "12eddd49-ffbb-4784-82a8-232e8f4124dc"
-
-
   })
   const handleOnChange = (e) =>{
       const name = e.target.name;
@@ -34,12 +33,12 @@ function CourseForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const payload = {...formData};
+    const payload = {...formData, userUserID: loggedInUser};
     const createdNewCourse = await axios.post("http://localhost:8080/courses ", payload);
     setCreatedCourse(createdNewCourse?.data);
+    setIsCloseClicked(false)
   }
-  console.log(formData);
-  console.log(createdCourse);
+
   return (
     <> { isCloseClicked && <Form className={styles.contactusContainer}>
         <div className={styles.signIn_closebtn} title="close">

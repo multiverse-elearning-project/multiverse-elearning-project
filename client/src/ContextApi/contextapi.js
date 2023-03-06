@@ -1,7 +1,5 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { getAllCourses } from "../Helper/Helper";
-import mockdata from "./mockdata";
 const MultiverseContext = React.createContext();
 function MultiverseProvider({ children }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -15,17 +13,23 @@ function MultiverseProvider({ children }) {
   const [isLectureClicked, setIsLectureClicked] = useState("");
   const [selectedLecture, SetSelectedLecture] = useState([]);
   const [isCloseClicked, setIsCloseClicked] = useState(true);
-  const [addModule, setAddModule ] = useState(false);
+  const [addModule, setAddModule] = useState(false);
   const [selectedModule, setSelectedModule] = useState();
   const [addLecture, setAddLecture] = useState(false);
-
+  const [auth, setAuth] = useState({});
+  const [addToCourseID, setAddToCourseId] = useState("");
+  const [addToModuleID, setAddToModuleId] = useState("");
+  const [userInfo, setUserInfo] = useState({});
+  const [createdCourse, setCreatedCourse] = useState();
+  const [deletedCourse, setDeletedCourse] = useState();
+  //setDeletedCourse
   useEffect(() => {
     async function FetchAllcourses() {
       const allcourses = await axios.get("http://localhost:8080/courses");
       SetCourses(allcourses?.data);
     }
     FetchAllcourses();
-  }, []);
+  }, [createdCourse, deletedCourse]); //dependency array should be added here
   console.log(courses);
   const FilterCardData = (allcourses) => {
     const courseCard = allcourses?.map((course, i) => {
@@ -44,13 +48,35 @@ function MultiverseProvider({ children }) {
       };
     });
     SetFilteredCourses(courseCard);
-    setSearchList(courseCard)
+    setSearchList(courseCard);
   };
 
   useEffect(() => {
-    FilterCardData(courses);
-  }, [courses]);
+    const sortedcourseByDate = courses?.sort((a, b) => {
+      if (a.courseReleaseDate < b.courseReleaseDate) return -1;
+      if (a.courseReleaseDate > b.courseReleaseDate) return 1;
+    });
 
+    const sortedcourselectureID = sortedcourseByDate?.map((cours) => {
+      if (cours.modules) {
+        return cours?.modules?.map((mod) =>
+          mod?.lectures?.sort((a, b) => {
+            if (a.id < b.id) return -1;
+            if (a.id > b.id) return 1;
+          })
+        );
+      }
+
+      // return cours?.modules
+    });
+
+    console.log(sortedcourseByDate);
+    console.log("lecture", sortedcourselectureID);
+    //FilterCardData(courses);
+    FilterCardData(sortedcourseByDate);
+  }, [courses]);
+  console.log(auth);
+  console.log(addToModuleID);
   return (
     <MultiverseContext.Provider
       value={{
@@ -74,14 +100,26 @@ function MultiverseProvider({ children }) {
         setIsLectureClicked,
         searchList,
         setSearchList,
-        isCloseClicked, 
+        isCloseClicked,
         setIsCloseClicked,
-        addModule, 
+        addModule,
         setAddModule,
-        selectedModule, 
+        selectedModule,
         setSelectedModule,
-        addLecture, 
-        setAddLecture
+        addLecture,
+        setAddLecture,
+        auth,
+        setAuth,
+        addToCourseID,
+        setAddToCourseId,
+        addToModuleID,
+        setAddToModuleId,
+        userInfo,
+        setUserInfo,
+        createdCourse,
+        setCreatedCourse,
+        deletedCourse,
+        setDeletedCourse,
       }}
     >
       {children}

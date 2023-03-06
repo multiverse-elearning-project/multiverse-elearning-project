@@ -8,8 +8,8 @@ import { MultiverseContext } from "../../ContextApi/contextapi";
 import { Outlet } from "react-router-dom";
 
 function DashBoard() {
-  const { searchList } = useContext(MultiverseContext);
-
+  const { searchList, auth } = useContext(MultiverseContext);
+console.log(auth)
   return (
     <>
       <NavbarMenu />

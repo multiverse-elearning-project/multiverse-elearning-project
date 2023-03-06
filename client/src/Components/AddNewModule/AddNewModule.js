@@ -8,16 +8,15 @@ import { Link } from "react-router-dom";
 import { MultiverseContext } from "../../ContextApi/contextapi";
 
 function AddNewModule() {
-  const { addModule, setAddModule } = useContext(MultiverseContext);
+  const { addModule, setAddModule,addToCourseID } = useContext(MultiverseContext);
 
   const [moduleResponse, setModuleResponse] = useState();
-
+console.log(addToCourseID)
   const [moduleData, setModuleData] = useState({
     moduleName: "",
     moduleUrl: "",
     excersices: "",
     description: "",
-    courseCourseID: "a1e93197-32f7-4b6c-858c-67edbf492cd7",
   });
   const handleOnChange = (e) => {
     const name = e.target.name;
@@ -29,15 +28,16 @@ function AddNewModule() {
       };
     });
   };
-
+console.log(moduleData)
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const payload = { ...moduleData };
+    const payload = { ...moduleData, courseCourseID: addToCourseID, };
     const newModule = await axios.post(
       "http://localhost:8080/modules",
       payload
     );
     setModuleResponse(newModule?.data);
+    setAddModule(false)
   };
   console.log(moduleResponse);
 

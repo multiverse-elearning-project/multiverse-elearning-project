@@ -19,13 +19,12 @@ function Lecture({ data, modul }) {
     if (!lectureclicked) {
       setIsLectureClicked(lectId);
     }
-    // if (isLectureClicked === lectId) {
+ 
     const Lecture = await axios.get(
       `http://localhost:8080/courses/modules/lectures/${lectId}`
     );
     console.log(Lecture.data);
     SetSelectedLecture(Lecture.data);
-    // }
   };
 
   const  handleDelete = async () => {
