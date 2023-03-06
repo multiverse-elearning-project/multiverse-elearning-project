@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  backend:
+    container_name: multiverse_api
+    restart: on-failure
+    image: multiverse-api-prod:1.0.0
+    build:
+      context: backend
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    networks:
+      - shared-network
+  client:
+    container_name: multiverse_client
+    restart: on-failure
+    image: multiverse-client-prod:0.0.1
+    build:
+      context: client
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - shared-network
+    depends_on:
+      - backend
+networks:
+  shared-network:
