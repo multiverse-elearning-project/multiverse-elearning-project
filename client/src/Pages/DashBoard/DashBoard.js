@@ -32,11 +32,14 @@ console.log(auth)
             </div>
           </div>
         </div>
-        <div className={styles.create_newcourse}>
+        {/* <div className={styles.create_newcourse}>
           <Outlet />
-        </div>
+        </div> */}
       </div>
-      <Footer />
+      <div className={styles.create_newcourse}>
+        <Footer />
+      </div>
+   
     </>
   );
 }
