@@ -29,6 +29,9 @@ function ContactUs() {
       payload
     );
     setClosefeedback(true);
+    setTimeout(() => {
+      setClosefeedback(false);
+    }, 3000);
   };
   return (
     <>
