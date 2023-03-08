@@ -17,7 +17,7 @@ function NavbarMenu() {
   return (
     <Navbar bg="dark" expand="lg" className="NavbarContainer">
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand as={Link} to="/dashboard">
           <img src="/logo1.png" alt="" className="nav-logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="humberger" />
