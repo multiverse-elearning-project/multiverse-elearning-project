@@ -22,6 +22,7 @@ function MultiverseProvider({ children }) {
   const [userInfo, setUserInfo] = useState({});
   const [createdCourse, setCreatedCourse] = useState();
   const [deletedCourse, setDeletedCourse] = useState();
+  const [closefeedback, setClosefeedback] = useState(false);
   //setDeletedCourse
   useEffect(() => {
     async function FetchAllcourses() {
@@ -120,6 +121,8 @@ function MultiverseProvider({ children }) {
         setCreatedCourse,
         deletedCourse,
         setDeletedCourse,
+        closefeedback,
+        setClosefeedback,
       }}
     >
       {children}

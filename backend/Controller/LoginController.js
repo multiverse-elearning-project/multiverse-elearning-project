@@ -51,4 +51,41 @@ const LoginHandeler = async (req, res) => {
   }
 };
 
-module.exports = { LoginHandeler };
+const EditProfile = async (req, res, next) => {
+  try {
+    const { firstName, lastName, email, password, avatarImage, role } =
+      req.body;
+    if (!firstName && !lastName && !email && !password && !avatarImage && !role)
+      return res
+        .sendStatus(400)
+        .json({ msg: "atleast one field has to be edited" });
+    const payload = {
+      firstName,
+      lastName,
+      email,
+      password,
+      avatarImage,
+      role,
+    };
+    const updatedUser = await Users.update(payload, {
+      where: { userID: req.params.id },
+    });
+    res.json(updatedUser);
+  } catch (error) {
+    res.status(500).json({ message: error.message }); // server error
+    next(error);
+  }
+};
+const getUserById = async (req, res, next) => {
+  try {
+    const user = await Users.findOne({
+      where: { userID: req.params.id },
+    });
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message }); // server error
+    next(error);
+  }
+};
+
+module.exports = { LoginHandeler, EditProfile, getUserById };

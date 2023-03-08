@@ -11,7 +11,6 @@ function ProfileView() {
   const firstName = first?.charAt(0).toUpperCase() + first?.slice(1);
   const lastName = last?.charAt(0).toUpperCase() + last?.slice(1);
 
-  console.log(userInfo);
   return (
     <div>
       <header>
@@ -62,9 +61,9 @@ function ProfileView() {
           </div>
         </div>
       </header>
-      <body>
+      <div>
         <div className={styles.container}></div>
-      </body>
+      </div>
     </div>
   );
 }

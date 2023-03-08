@@ -1,0 +1,11 @@
+.container-setting{
+    min-height: 100vh;
+    background-color:brown;
+    color:white;
+}
+.setting-footer{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right: 0;
+}

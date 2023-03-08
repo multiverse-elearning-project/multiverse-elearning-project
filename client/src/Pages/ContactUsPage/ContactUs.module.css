@@ -1,3 +1,9 @@
 .contactus{
-    min-height: 100%;
+    min-height: 100vh;
+}
+.contactusFooter{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }

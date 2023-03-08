@@ -13,10 +13,9 @@ function Avatar({ profileImg, name }) {
   const loggedInUser = jwt_decode(auth?.data?.accessToken)?.userInfo?.id;
 
   const handleViewProfile = async (id) => {
-    const user = await axios.get(`http://localhost:8080/signin/${id}`);
-    setUserInfo(user.data);
+    const userF = await axios.get(`http://localhost:8080/signin/${id}`);
+    setUserInfo(userF.data);
   };
-  console.log(userInfo);
   return (
     <div className={styles.avatarcontainer}>
       <Link to="/profile">

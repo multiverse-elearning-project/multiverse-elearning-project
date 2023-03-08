@@ -5,6 +5,7 @@ const { CourseModules } = require("./Modules_M");
 const { Users } = require("./Users_M");
 const { Payments } = require("./Payment_M");
 const { Enrollments } = require("./Enrollement_M");
+const { ContactUS } = require("./ContactUS_M");
 
 //model association
 Users.hasMany(Courses, {
@@ -28,13 +29,6 @@ CourseModules.hasMany(Lectures, {
 });
 Lectures.belongsTo(CourseModules);
 
-// Instructors.hasMany(CourseModules);
-// CourseModules.belongsTo(Instructors);
-
-// Instructors.hasMany(Courses);
-// Courses.belongsTo(Instructors);
-
-// Instructors.hasMany(Payments);
 Payments.belongsTo(Users);
 
 Users.hasMany(Enrollments, {
@@ -49,4 +43,5 @@ module.exports = {
   Users,
   Payments,
   Enrollments,
+  ContactUS
 };
