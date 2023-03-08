@@ -12,12 +12,14 @@ function Profile() {
   return (
     <div>
       <Navbar />
+      <div className={styles.profile_view}>
       <div className={styles.profilebody}>
         <ProfileView />
       </div>
 
       {isEditClicked ? <UpdateProfile /> : null}
-      <div className={""}>
+      </div>
+      <div className={styles.profile_footer}>
         <Footer />
       </div>
     </div>

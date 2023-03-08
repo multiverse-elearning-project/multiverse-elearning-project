@@ -1,3 +1,15 @@
 .profilebody{
     min-height: 100%;
 }
+
+.profile_footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+.profile_view {
+    min-height: 100%;
+
+}
