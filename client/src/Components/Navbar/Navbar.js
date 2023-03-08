@@ -8,11 +8,12 @@ import { Navtext } from "../DynamicData";
 import { Link } from "react-router-dom";
 import { MultiverseContext } from "../../ContextApi/contextapi";
 function NavbarMenu() {
-  const { auth } = useContext(MultiverseContext);
+  const { auth, setIsCloseClicked } = useContext(MultiverseContext);
   const loggedInUser = auth?.data?.role;
-  const isInstructorOrAdmin =
-    loggedInUser === "instructor" || loggedInUser === "admin";
-  console.log(auth);
+  let isInstructorOrAdmin;
+  if (loggedInUser === "instructor" || loggedInUser === "admin") {
+    isInstructorOrAdmin = true;
+  }
   return (
     <Navbar bg="dark" expand="lg" className="NavbarContainer">
       <Container>
@@ -22,14 +23,19 @@ function NavbarMenu() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="humberger" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/" className="menu-list">
+            <Nav.Link as={Link} to="/dashboard" className="menu-list">
               {Navtext.navigateCourses}
             </Nav.Link>
             <Nav.Link as={Link} to="/dashboard" className="menu-list">
               {Navtext.Courseprogress}
             </Nav.Link>
             {isInstructorOrAdmin && (
-              <Nav.Link as={Link} to="/newcourse" className="menu-list">
+              <Nav.Link
+                as={Link}
+                to="/newcourse"
+                className="menu-list"
+                onClick={() => setIsCloseClicked(true)}
+              >
                 {Navtext.newCourse}
               </Nav.Link>
             )}

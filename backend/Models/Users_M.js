@@ -31,7 +31,6 @@ const Users = sequelize.define("users", {
   },
   avatarImage: {
     type: DataTypes.STRING,
-    allowNull: true,
   },
   refreshToken: {
     type: DataTypes.STRING,

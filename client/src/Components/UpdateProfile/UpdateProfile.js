@@ -119,11 +119,13 @@ function EditProfile() {
             onChange={handleChange}
           />
         </Form.Group>
-        <Form.Group className={styles.avatar}>
-          <input
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Avatar</Form.Label>
+          <Form.Control
             type="text"
             id="avatar"
             name="avatarImage"
+            placeholder="Enter avatar image"
             onChange={handleChange}
           />
         </Form.Group>

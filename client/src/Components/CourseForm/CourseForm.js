@@ -12,7 +12,6 @@ function CourseForm() {
 
   const {isCloseClicked, setIsCloseClicked, auth,setCreatedCourse} = useContext(MultiverseContext);
   const loggedInUser = jwt_decode(auth.data.accessToken).userInfo.id
-  //console.log(jwt_decode(auth.data.accessToken).userInfo.id)
 
   const [formData, setFormData] = useState({
     courseName: "",
