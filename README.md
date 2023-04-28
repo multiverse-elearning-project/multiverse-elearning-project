@@ -1,7 +1,7 @@
 
 # Multiverse Elearning Project 
 
-As Enginners in the Multiverse Apprenticesip Program, we want to be able to create a e-learning platform for apsiring students/professionals to engage in. 
+As Engineers in the Multiverse Apprenticeship Program, we want to be able to create a e-learning platform for aspiring students/professionals to engage in. 
 
 ## 💡 Philosophy
 Our experience tells us that skills are universal but oppurtunities are influenced by circumstancial enviorments. Our goal is to connect aspiring learners to the best instructors in their respective fields. Onwards!
